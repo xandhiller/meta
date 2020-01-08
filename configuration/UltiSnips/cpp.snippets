@@ -1,0 +1,51 @@
+snippet cout "cout" bA
+cout << $1
+endsnippet
+
+snippet endl "endl" A
+<< endl;
+endsnippet
+
+snippet print "print to cout" bA
+cout << ${1:${VISUAL}} << endl;$0
+endsnippet
+
+# TODO: Templates, classes, methods, attributes, operator overloading templates.
+
+snippet "i([a-z]+)" "Include random w/ arrows" rb
+#include <`!p
+snip.rv = match.group(1)
+`>
+endsnippet
+
+snippet "I([A-Za-z]+)" "Include random w/ quotes" rb
+#include "`!p
+snip.rv = match.group(1)
+`.${1:hpp}"$0
+endsnippet
+
+snippet doc "Documentation strin" bA
+/* 
+ *  $1
+ */
+endsnippet
+
+snippet main "main" bA
+int main($1) {
+	$0
+	return 0;
+}
+endsnippet
+
+snippet arg "arguments" i
+int argc, char* argv[]$0
+endsnippet
+
+snippet class "class template" bA
+class $1 {
+public:
+	$1($2); // Constructor
+private:
+	$3;
+};
+endsnippet	

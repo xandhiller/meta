@@ -1,0 +1,44 @@
+#! /bin/sh --
+
+# Only run the script if there's an argument
+if [ -z "$1" ]
+then
+  echo "No argument given."
+  return 1
+fi
+
+mkdir -p bin
+
+fullName=$1
+baseName="bin/$(echo $fullName | sed s/.cpp//)"
+errorFile="$baseName.cpperror"
+
+# Remove the previous error file.
+touch $(pwd)/$errorFile
+rm $(pwd)/$errorFile
+
+# Compile statement.
+g++ -std=c++11 -o $baseName $fullName 2> $errorFile
+
+if [ "$2" = "-build" ]
+then 
+    echo "\nBuilding only..."
+fi
+
+# If it compiled, run it.
+if [ -s $errorFile ] # Tests if file exists and not empty. If true = no compile.
+then
+  printf "\n\n" >> $(pwd)/$errorFile # Formatting
+  date >> $(pwd)/$errorFile # Date/time of compiling for context
+  echo "Warnings present or didn't compile.\n\n"
+  cat $(pwd)/$errorFile
+  return 1
+else
+  # if build argument given, then just build.
+  if [ "$2" = "-build" ]
+  then 
+      echo "\nBuilt successfully."
+      return 0
+  fi
+  $(pwd)/$baseName # Run the file if no errors or warnings.
+fi

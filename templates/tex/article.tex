@@ -1,0 +1,44 @@
+\documentclass{article}
+\author{Alex Hiller}
+\title{}
+% Type-setting
+\setlength{\parindent}{0cm}
+\setlength{\parskip}{0.125cm}
+% \pagenumbering{gobble}
+\usepackage[margin=2.5cm]{geometry} % Formatting
+\usepackage{amsmath}      % Mathematics
+\usepackage{amssymb}      % Mathematics
+\usepackage{listings}     % Listings
+\usepackage{esint}        % Mathematics
+\usepackage{color}        % Listings
+\usepackage{courier}      % Listings
+\usepackage{circuitikz}   % Circuits
+\usepackage{titlesec}     % Section Formatting
+\usepackage{stmaryrd}     % \mapsfrom arrow. 
+\usepackage{mathtools}    % \coloneqq
+\usepackage{svg}
+\usepackage{import}
+\usepackage{pdfpages}
+\usepackage{transparent}
+\usepackage{xcolor}
+\usepackage{blindtext}
+\newcommand{\incfig}[1]{%
+    \def\svgwidth{0.5\columnwidth}
+    \import{./figures/}{#1.pdf_tex}
+}
+\pdfsuppresswarningpagegroup=1
+\setsvg{inkscape=inkscape -z -D}
+\input{/home/alex/Templates/tex/texMacros}
+% Section formatting
+\titleformat{\section}{\huge \bfseries}{}{0em}{}[]
+\titleformat{\subsection}{\Large \bfseries}{}{0em}{}
+\titleformat{\subsubsection}{\bfseries}{}{0em}{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+<++>
+
+\end{document}
+

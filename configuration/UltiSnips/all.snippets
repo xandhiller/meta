@@ -1,0 +1,60 @@
+snippet sympy "sympy block " w
+sympy $1 sympy$0
+endsnippet
+
+
+priority 10000
+snippet 'sympy(.*)sympy' "evaluate sympy" wr
+`!p
+from sympy import *
+x, y, z, t = symbols('x y z t')
+k, m, n = symbols('k m n', integer=True)
+f, g, h = symbols('f g h', cls=Function)
+init_printing()
+snip.rv = eval('latex(' + match.group(1).replace('\\', '') \
+    .replace('^', '**') \
+    .replace('{', '(') \
+    .replace('}', ')') + ')')
+`
+endsnippet
+
+
+snippet box "Box"
+`!p snip.rv = '┌' + '─' * (len(t[1]) + 2) + '┐'`
+│ $1 │
+`!p snip.rv = '└' + '─' * (len(t[1]) + 2) + '┘'`
+$0
+endsnippet
+
+
+snippet today "Date"
+`date +%F`
+endsnippet
+
+
+snippet shell "Shell Shebang" b
+#! /bin/sh --
+$1
+endsnippet
+
+
+snippet python3 "python3.7 Shebang" b
+#! /usr/bin/python3.7 --
+$1
+endsnippet
+
+
+snippet python "python3.7 Shebang" b
+#! /usr/bin/python3.7 --
+$1
+endsnippet
+
+
+snippet python2 "python2 Shebang" b
+#! /usr/bin/python --
+$1
+endsnippet
+
+snippet lorem "loremipsum" b
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+endsnippet

@@ -1,0 +1,39 @@
+#! /bin/sh --
+# Only run the script if there's an argument
+if [ -z "$1" ] 
+  then
+  return 1
+fi
+
+# Hours database (csv format)
+database="/home/polluticorn/vimwiki/hours/hours.csv"
+
+# If argument is log, log hours
+if [ $1 = "log" ]
+  then
+  echo "How many hours?"
+  read nbHours < /dev/tty 
+  echo "Rate of pay?"
+  read rop < /dev/tty
+  echo -n "Notes: "
+  read notes < /dev/tty
+  echo "$(date +%Y/%m/%d,%H:%M:%S),$nbHours,$rop,$notes" >> $database
+fi
+
+# If argument is view, view hours
+if [ $1 = "view" ]
+  then
+  echo -n " "
+  # Python program
+  cmd="import pandas as pd; \
+  df = pd.read_csv('$database', index_col=0); \
+  print(df.loc[:, ~df.columns.str.contains('^Unnamed')])"
+  # Parse string to python as program
+  python -c "$cmd"
+fi
+
+# If argument is edit, edit hours
+if [ $1 = "edit" ]
+  then
+  echo -n " "
+fi

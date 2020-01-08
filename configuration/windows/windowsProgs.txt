@@ -1,0 +1,5 @@
+# gvim for windows installer.
+https://ftp.nluug.nl/pub/vim/pc/gvim81.exe
+
+# git (64-bit) for windows installer.
+https://github.com/git-for-windows/git/releases/download/v2.19.2.windows.1/Git-2.19.2-64-bit.exe

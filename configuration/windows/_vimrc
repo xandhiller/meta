@@ -1,0 +1,62 @@
+source $VIMRUNTIME/vimrc_example.vim
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Appearance
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+colorscheme evening
+highlight Visual cterm=reverse
+" Indicate the 80 character point in each row.
+set colorcolumn=81
+highlight ColorColumn guibg=grey
+autocmd Filetype markdown highlight ColorColumn guibg=NONE
+highlight Visual cterm=reverse ctermbg=NONE
+highlight LineNr guifg=cyan
+highlight CursorLineNR cterm=bold guifg=yellow
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Input settings
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set tabstop=2
+set shiftwidth=2
+set expandtab
+set number relativenumber
+set confirm 
+set autoindent 
+set linebreak
+set showmatch
+set mouse=a
+" Refresh vimrc
+noremap <F5> :source $MYVIMRC<CR>:echo "Vimrc refreshed."<CR>
+" Mark
+" define a highlight colour group for bookmarks
+hi default BookmarkCol gui=reverse 
+" define a bookmark / sign: just highlight the line
+sign define MyBookmark linehl=BookmarkCol
+" add something to the context menue (right mouse)
+nnoremap <C-b> :exe 'sign place 1000 name=MyBookmark line='.line(".").' buffer='.winbufnr(0)<CR>
+amenu 1.200 PopUp.-SEP3- :
+amenu 1.200 PopUp.&mark.set\ bookmark :exe 'sign place 1000 name=MyBookmark line='.line(".").' buffer='.winbufnr(0)<CR>
+amenu 1.200 PopUp.&mark.del\ bookmarks :sign unplace 1000 <CR>
+amenu 1.200 PopUp.&mark.list\ bookmarks :sign list<CR>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Gui vim settings
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set guifont=DejaVu_Sans_Mono:h9:cANSI:qDRAFT
+set formatoptions=croql
+set indentkeys=0{,0},:,0#,!^F,o,O,e,=end,=else,=cat,=fina,=END,0\
+set scroll=33
+set scrolloff=5
+set incsearch
+set ruler
+set wildmenu
+set ttimeout
+set display=truncate
+set guioptions=egmL
+set undofile
+set window=67
+set modified
+set cursorline
+winpos 0 0
+set lines=58
+set columns=95

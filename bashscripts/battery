@@ -1,0 +1,13 @@
+#! /bin/sh --
+
+# Get battery % value
+val=$(acpi | awk  'NR==2{ print $4 };' | sed -e "s/,//g")
+# Get current date and time
+datetime=$(date +%c)
+# Save data where
+battery_log="$HOME/.scripts/data/battery_log"
+
+# Save data
+echo "$val" | sed -e 's/%//g' >> $battery_log
+# Echo it out
+echo $val

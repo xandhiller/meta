@@ -1,0 +1,260 @@
+# Run Scripts/Configs
+font pango:Dejavu Sans Mono 16
+set $mod Mod4
+set $alt Mod1
+# set $fn   XF86WakeUp
+set $term st
+set $lock ~/.scripts/pLock.sh
+set $kbLight python3 /usr/local/bin/kb-light.py --up
+set $touchpad exec --no-startup-id sh ~/.scripts/touch_toggle
+set $terminalDraw ~/.scripts/term
+set $textbookOpener ~/.scripts/textbookOpener
+set $listScripts ~/.scripts/listScripts
+set $brightness ~/.scripts/brightness
+set $surface_sounds ~/.scripts/surface_sounds
+
+exec --no-startup-id ~/.bashrc
+exec --no-startup-id unclutter -idle 0.1 -root
+exec --no-startup-id $surface_sounds
+exec --no-startup-id xrdb -merge ~/.Xdefaults
+exec --no-startup-id sh ~/.config/keyRemaps
+exec --no-startup-id ~/.scripts/mouse
+exec --no-startup-id compton -f -i 0.8 -b
+
+bindsym $mod+m exec --no-startup-id $term -t "f-follow-mouse" -e nvim "$HOME/.tex_workspace/scratchpad.tex"
+
+
+# Default setup
+#gaps inner              0
+#gaps outer              0
+new_window pixel        4
+focus_follows_mouse     no
+floating_modifier       $mod
+
+# Workspace Names
+set $ws1 1 
+set $ws2 2 
+set $ws3 3 
+set $ws4 4 
+set $ws5 5 
+set $ws6 6 
+set $ws7 7 
+set $ws8 8 
+set $ws9 9 
+set $ws10 10 
+set $ws11 11 
+set $ws12 12 
+set $ws13 13 
+set $ws14 14 
+set $ws15 15 
+set $ws16 16 
+set $ws17 17 
+set $ws18 18 
+set $ws19 19 
+set $ws20 20 
+ 
+# Set colours:
+set $darkblack	 "#000000"
+set $black	     "#222222"
+set $white	     "#FFFFFF"
+set $wh          "#333333"
+set $cyan        "#AAFFFF"
+set $purple      "#DDA0DD"
+set $transparent "#000000"
+set $red		 "#AA9999"
+set $darkred	 "#330000"
+set $orange      "#DD7020"
+set $darkorange  "#000000"
+set $blue        "#5A65FF"
+set $darkblue    "#2F3690"
+set $grey        "#666666"
+set $darkgrey    "#606060"
+set $subtlegrey  "#353535"
+
+# This colour is the highlight colour of windows.
+set $col         "#9999FF"
+set $acol        "#FFFFFF"
+set $col2        "#FFFFFF"
+set $acol2       "#FFFFFF"
+set $col3        "#FFFFFF" 
+set $acol3       "#FFFFFF"
+
+#                         BORDER		BACKGROUND	  TEXT		  
+client.focused		      $col	        $col          $col	    $acol
+client.unfocused	      $col2	        $col2         $col2	    $acol2  
+client.focused_inactive	  $col3	        $col3         $col3	    $acol3
+client.urgent		      $grey	        $grey         $grey	    $grey  
+client.placeholder        $grey	        $grey         $grey	    $grey  
+client.background         $black
+
+# Status Bar 
+bar {
+	font pango:mono 8
+    status_command i3blocks
+	position top
+    strip_workspace_numbers no
+    colors {
+        set $background     "#AAAAAA"
+        set $focus          "#CCCCCC"
+        background          $background
+        statusline          "#000000"
+        separator           $background
+        focused_workspace   $focus $focus "#000000"
+        inactive_workspace  $background $background "#000000"
+  }  
+  tray_padding 2
+}
+exec --no-startup-id hsetroot -solid "#CCCCCC"
+exec --no-startup-id compton -f -i 0.75 --config ~/.config/compton.conf -b
+exec --no-startup-id flashfocus
+bindsym $mod+Delete exec --no-startup-id flash_window
+
+# bindsym $mod+n exec i3-input -F 'rename workspace to "'`i3-msg -t get_workspaces | jq '.[] | select(.visible == true)' | jq .num`': %s"' -P "new name? "
+
+# Define, search, wikipedia and window access
+# bindsym $mod+Left               exec --no-startup-id wikipedia $(rofi -dmenu -input /dev/null -p "Wikipedia: ")
+# bindsym $mod+Right              exec --no-startup-id rofi -show window
+bindsym $mod+Left               workspace prev;
+bindsym $mod+Right              workspace next;
+
+bindsym $mod+Shift+Left         move container to workspace prev;
+bindsym $mod+Shift+Right        move container to workspace next;
+# bindsym $mod+Down               exec --no-startup-id define $(rofi -dmenu -input /dev/null -p "Define: ")
+# bindsym $mod+Up                 exec --no-startup-id search $(rofi -dmenu -input /dev/null -p "Search: ")
+# Keybound utilities
+bindsym $fn+space $kbLight
+bindsym $mod+Shift+d            exec --no-startup-id openDownloads
+bindsym $mod+a                  exec --no-startup-id $textbookOpener
+bindsym $mod+F12                exec --no-startup-id $lock
+bindsym $mod+s                  exec --no-startup-id $listScripts
+bindsym $mod+$alt+Return         exec --no-startup-id $term -e ranger
+bindsym XF86MonBrightnessDown   exec --no-startup-id $brightness down
+bindsym XF86MonBrightnessUp     exec --no-startup-id $brightness up
+# Screen adjustments
+# bindsym $mod+Shift+Right        exec --no-startup-id xrandr --output HDMI-1 --rotate right
+# bindsym $mod+Shift+Down         exec --no-startup-id xrandr --output HDMI-1 --rotate normal
+# bindsym $mod+Shift+Up           exec --no-startup-id xrandr --output HDMI-1 --rotate inverted
+# bindsym $mod+Shift+Left         exec --no-startup-id xrandr --output HDMI-1 --rotate left  
+# Use Mouse+$mod to drag floating windows to their wanted position
+bindsym $mod+Return             exec $term
+bindsym $mod+q                  kill
+bindsym $mod+b                  split h
+bindsym $mod+v                  split v
+bindsym $mod+d                  exec dmenu_run -l 25
+bindsym $mod+semicolon          focus right
+# alternatively, you can use the cursor keys:
+bindsym $mod+h                  focus left
+bindsym $mod+j                  focus down
+bindsym $mod+k                  focus up
+bindsym $mod+l                  focus right
+# alternatively, you can use the cursor keys:
+bindsym $mod+Shift+h            move left
+bindsym $mod+Shift+j            move down
+bindsym $mod+Shift+k            move up
+bindsym $mod+Shift+l            move right
+# enter fullscreen mode for the focused container
+bindsym $mod+f                  fullscreen toggle
+# change container layout 
+bindsym $mod+w                  sticky toggle
+bindsym $mod+e                  layout toggle split
+# toggle tiling / floating
+bindsym $mod+Shift+space        floating toggle, resize set 1200 850, move position center
+# change focus between tiling / floating windows
+bindsym $mod+space              focus mode_toggle
+# Workspace Movements
+bindsym $mod+1                  workspace $ws1
+bindsym $mod+2                  workspace $ws2
+bindsym $mod+3                  workspace $ws3
+bindsym $mod+4                  workspace $ws4
+bindsym $mod+5                  workspace $ws5
+bindsym $mod+6                  workspace $ws6
+bindsym $mod+7                  workspace $ws7
+bindsym $mod+8                  workspace $ws8
+bindsym $mod+9                  workspace $ws9
+bindsym $mod+0                  workspace $ws10
+bindsym $mod+$alt+1             workspace $ws11
+bindsym $mod+$alt+2             workspace $ws12
+bindsym $mod+$alt+3             workspace $ws13
+bindsym $mod+$alt+4             workspace $ws14
+bindsym $mod+$alt+5             workspace $ws15
+bindsym $mod+$alt+6             workspace $ws16
+bindsym $mod+$alt+7             workspace $ws17
+bindsym $mod+$alt+8             workspace $ws18
+bindsym $mod+$alt+9             workspace $ws19
+bindsym $mod+$alt+0             workspace $ws20
+# Move to a workspace and go there.
+bindsym $mod+Shift+1            move container to workspace $ws1
+bindsym $mod+Shift+2            move container to workspace $ws2
+bindsym $mod+Shift+3            move container to workspace $ws3
+bindsym $mod+Shift+4            move container to workspace $ws4
+bindsym $mod+Shift+5            move container to workspace $ws5
+bindsym $mod+Shift+6            move container to workspace $ws6
+bindsym $mod+Shift+7            move container to workspace $ws7
+bindsym $mod+Shift+8            move container to workspace $ws8
+bindsym $mod+Shift+9            move container to workspace $ws9
+bindsym $mod+Shift+0            move container to workspace $ws10
+bindsym $mod+Shift+$alt+1       move container to workspace $ws11
+bindsym $mod+Shift+$alt+2       move container to workspace $ws12
+bindsym $mod+Shift+$alt+3       move container to workspace $ws13
+bindsym $mod+Shift+$alt+4       move container to workspace $ws14
+bindsym $mod+Shift+$alt+5       move container to workspace $ws15
+bindsym $mod+Shift+$alt+6       move container to workspace $ws16
+bindsym $mod+Shift+$alt+7       move container to workspace $ws17
+bindsym $mod+Shift+$alt+8       move container to workspace $ws18
+bindsym $mod+Shift+$alt+9       move container to workspace $ws19
+bindsym $mod+Shift+$alt+0       move container to workspace $ws20
+bindsym $mod+Shift+r            restart
+bindsym $mod+Shift+e            exec "i3-nagbar -b 'Yes, exit i3' 'i3-msg exit'"
+#Browser
+bindsym $mod+Shift+Return       exec --no-startup-id chromium-browser
+bindsym $mod+Shift+p            exec --no-startup-id $term -e python3 
+bindsym $mod+c                  move position center
+bindsym $mod+$fn+space          floating toggle, resize set 625 400
+bindsym $mod+Ctrl+space         floating toggle, resize set 625 400, move position center
+# nb: Mod1 = alt keys
+bindsym $mod+$alt+space         floating toggle, resize set 800 700, move position center
+# bindsym $mod+i                  exec scrot && notify-send "Screenshot taken" -t 25
+bindsym $mod+Shift+Down                 move scratchpad
+bindsym $mod+Down               scratchpad show
+# bindsym $mod+t                  $touchpad
+# Gap tweaks
+bindsym $mod+Shift+g            gaps inner all set 0; gaps outer all set 0;
+bindsym $mod+$alt+g             gaps inner all set 4; gaps outer all set 1;
+
+exec --no-startup-id sh ~/.scripts/keyRemaps 
+bindsym $mod+y                  exec --no-startup-id sh ~/.scripts/keyRemaps && notify-send "Key mappings refreshed" -t 25
+ 
+mode "gaps-resize" {
+        bindsym j       gaps inner all minus  5px
+        bindsym k       gaps inner all plus   5px
+        bindsym Shift+j gaps outer all minus  5px
+        bindsym Shift+k gaps outer all plus   5px
+
+        # back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+bindsym $mod+Control+g mode "gaps-resize"
+
+# Blunt resizing
+bindsym $mod+$alt+h resize shrink width   10 px or 10 ppt
+bindsym $mod+$alt+j resize grow   height  10 px or 10 ppt
+bindsym $mod+$alt+k resize shrink height  10 px or 10 ppt
+bindsym $mod+$alt+l resize grow   width   10 px or 10 ppt
+
+
+# Fine resizing
+bindsym $mod+$alt+Control+h resize shrink width   2 px or 2 ppt
+bindsym $mod+$alt+Control+j resize grow   height  2 px or 2 ppt
+bindsym $mod+$alt+Control+k resize shrink height  2 px or 2 ppt
+bindsym $mod+$alt+Control+l resize grow   width   2 px or 2 ppt
+
+bindsym $mod+t exec --no-startup-id touchpad_toggle
+
+
+for_window [ title="f-bottom-middle" ] floating enable, resize set 1200 850, move position mouse 
+for_window [ title="f-follow-mouse" ] floating enable, resize set 1200 500, move position center 
+for_window [ class="Inkscape" ] floating enable
+bindsym $mod+i resize set 2400 1500, move position center
+
+for_window [ class="Yad" ] floating enable, move position center;

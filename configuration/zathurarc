@@ -1,0 +1,11 @@
+set page-padding 1
+set statusbar-basename false
+set statusbar-bg "#FFFFFF"
+set statusbar-fg "#000000"
+set statusbar "false"
+set recolor-lightcolor "#FFFFFF"
+set recolor-darkcolor "#000000"
+set recolor "true"
+set selection-clipboard clipboardtrue
+set default-bg "#FFFFFF"
+set first-page-column 1

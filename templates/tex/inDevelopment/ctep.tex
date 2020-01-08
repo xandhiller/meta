@@ -1,0 +1,85 @@
+\documentclass{article}
+\author{Alex Hiller}
+\title{Concepts, Techniques, Exercises and Problems <++>}
+% Type-setting
+\setlength{\parindent}{0cm}
+\setlength{\parskip}{0.125cm}
+\usepackage[margin=3cm]{geometry} % Formatting
+
+% Packages
+\usepackage{amsmath}                  % Mathematics
+\usepackage{amssymb}                  % Mathematics
+\usepackage{listings}                 % Listings
+\usepackage{esint}
+\usepackage{color}                    % Listings
+\usepackage{courier}                  % Listings
+\usepackage{circuitikz}               % Circuits
+\usepackage{titlesec}                 % Section Formatting
+
+% Code Formatting 
+\input{/home/polluticorn/GitHub/texTemplates/codeFormat}
+
+% Math Macros
+\input{/home/polluticorn/GitHub/texTemplates/mathMacros}
+
+% Section formatting
+\titleformat{\section}{\huge \bfseries}{}{0em}{}[]
+\titleformat{\subsection}{\Large \bfseries}{}{0em}{}
+\titleformat{\subsubsection}{\bfseries}{}{0em}{}
+
+% Note Taking Macros
+\input{/home/polluticorn/GitHub/texTemplates/noteTaking}
+
+% Formatting Problems and Answers.
+
+% Counters
+\newcounter{problems}
+\newcounter{solutions}
+\newcounter{concepts}
+\newcounter{techniques}
+\newcounter{exercises}
+
+% Document Components
+\newcommand{\Problem}{\stepcounter{problems}\subsection{Problem \arabic{problems}}}
+\newcommand{\pSolution}{\stepcounter{solutions}\subsection{Solution to Problem \arabic{problems}}}
+\newcommand{\eSolution}{\stepcounter{solutions}\subsection{Solution to Exercise \arabic{exercises}}}
+\newcommand{\Exercise}{\stepcounter{exercises}\subsection{Exercise \arabic{exercises}}}
+\newcommand{\Technique}{\stepcounter{techniques}\subsection{Technique \arabic{techniques}}}
+\newcommand{\Concept}{\stepcounter{concepts}\subsection{Concept \arabic{concepts}}}
+\newcommand{\Answer}[1]{\subsubsection{Answer} \parbox{\textwidth}{\fbox{#1}}}
+
+% Shorten table commands
+\newcommand{\btab}[1]{\begin{table}[!h] \begin{center} \begin{tabular}{#1}}
+\newcommand{\etab}{ \end{tabular} \end{center} \end{table}}
+
+% Shorten section commands
+\newcommand{\s}[1]{\section{#1}}
+\renewcommand{\ss}[1]{\subsection{#1}}
+\newcommand{\sss}[1]{\subsubsection{#1}}
+
+\begin{document}
+
+\maketitle
+\clearpage
+\tableofcontents
+\clearpage
+
+\s{How to Use this Document}
+There are some important distinctions in nomenclature that will help you navigate these notes.
+
+\btab{p{0.12\textwidth}p{0.8\textwidth}}
+ \textbf{Concept}   & Qualitative description of an idea, often with a formula. \vspace{3mm} \\
+ \textbf{Technique} & Algebraic algorithm for breaking down a problem. \vspace{3mm} \\ 
+ \textbf{Exercise}  & Simple question usually requiring one or two concepts
+   to complete. \vspace{3mm} \\  
+ \textbf{Problem}   & Question requiring extended calculation or the combination of 
+   multiple concepts for its solution.\vspace{3mm} \\ 
+ \textbf{Answer}    & Numeric value that should emerge at the end of a 
+   correctly worked problem or exercise.\vspace{3mm}  \\
+ \textbf{Solution}  & Fully worked answer to a problem or exercise with explanations, 
+  diagrams, code and mathematics that is required to output the answer. \vspace{3mm} \\ 
+\etab
+
+\clearpage
+
+\end{document}

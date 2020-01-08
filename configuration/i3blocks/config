@@ -1,0 +1,28 @@
+[wifi]
+command=my_wifi
+interval=5
+
+[date]
+command=date +%F
+interval=5
+
+[space]
+command=echo " "
+interval=500
+
+[time]
+command=date +%R
+interval=5
+
+[space]
+command=echo " "
+interval=500
+
+[battery]
+command=battery
+interval=5
+
+
+[space]
+command=echo " "
+interval=500

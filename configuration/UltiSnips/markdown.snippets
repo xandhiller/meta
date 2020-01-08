@@ -1,0 +1,27 @@
+snippet "\*([ ].*$)" "Itemize list" r
+*`!p snip.rv=match.group(1)`
+* ${1:<++>}
+endsnippet
+
+snippet "code([ ])?([A-Za-z]*)" "Insert code in md" r
+\`\`\``!p 
+if match.group(2) is not None: 
+	snip.rv=match.group(2)`
+$0
+\`\`\`
+endsnippet
+
+snippet "([A-Za-z]*)/c" "Make inline code" rA
+\``!p 
+if match.group(1) is not "": 
+	snip.rv = match.group(1)
+`\` $0
+endsnippet
+
+snippet block "Create markdown block" b
+----
+
+${1:#} $0
+
+----
+endsnippet
