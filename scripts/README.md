@@ -4,4 +4,5 @@ Various scripts I write for my own personal convenience -- just to save me typin
 
 File format must:
 * Be executable, i.e. `chmod +x` must be run on the file.
-* Be named with the extension `.sh`, `.py` etc. It should instead utilise the appropriate shebang to begin the file, e.g. `#! /bin/sh`
+* Be named with the extension `.sh`, `.py` etc. 
+* Should utilise the appropriate shebang to begin the file, e.g. `#! /bin/sh`
