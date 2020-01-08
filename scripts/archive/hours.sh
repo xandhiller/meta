@@ -6,8 +6,7 @@ if [ -z "$1" ]
 fi
 
 # Hours database (csv format)
-database="/home/polluticorn/vimwiki/hours/hours.csv"
-
+# database="/home/polluticorn/vimwiki/hours/hours.csv" 
 # If argument is log, log hours
 if [ $1 = "log" ]
   then

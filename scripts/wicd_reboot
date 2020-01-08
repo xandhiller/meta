@@ -1,5 +1,0 @@
-sudo service wicd stop
-sudo rm /etc/resolv.conf
-sudo rm /var/lib/wicd/resolv.conf.orig
-sudo ln -s /run/resolvconf/resolv.conf /var/lib/wicd/resolv.conf.orig
-sudo service wicd start

@@ -6,10 +6,5 @@ if [ -z "$1" ]
   return 1
 fi
 
-# Define(s) database to store all defined searches
-database='/home/polluticorn/GitHub/configuration/defines.txt'
-
-echo $@ >> $database
-
 arg=$(echo $@ | sed 's/ /+/g')
 chromium-browser --new-window www.google.com/search?q=define+$arg 2> /dev/null > /dev/null

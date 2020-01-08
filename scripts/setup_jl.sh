@@ -1,6 +1,6 @@
 #! /bin/sh --
 
-dir="/home/polluticorn/GitHub/configuration/juliaWorkspace"
+dir="/home/alex/Meta/configuration/juliaWorkspace"
 
 cp -n $dir/tst.jl    . 
 cp -n $dir/Tmp.jl    .
