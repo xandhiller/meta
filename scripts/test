@@ -1,0 +1,6 @@
+#! /bin/bash
+
+if [ "hello" = "hello" ]
+then
+  echo They\'re the same!
+fi

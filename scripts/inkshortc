@@ -1,0 +1,3 @@
+#! /bin/sh --
+
+python3.7 /home/alex/.scripts/inkscape-shortcut-manager/main.py &

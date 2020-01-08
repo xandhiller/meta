@@ -1,0 +1,7 @@
+#! /bin/sh --
+
+dir="/home/polluticorn/GitHub/configuration/juliaWorkspace"
+
+cp -n $dir/tst.jl    . 
+cp -n $dir/Tmp.jl    .
+cp -n $dir/_init.jl  .
