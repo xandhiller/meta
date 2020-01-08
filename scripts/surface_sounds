@@ -1,4 +1,0 @@
-#! /bin/sh --
-
-amixer -c 0 sset 'Auto-Mute Mode' Disabled && sudo alsactl store
-

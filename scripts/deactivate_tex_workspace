@@ -1,4 +1,0 @@
-#! /bin/sh --
-
-pgrep inkscape-figure | xargs kill
-pgrep python | xargs ps -p | grep -e "inkscape-shortcut-manager" | awk -e '{ print $1 }' | xargs kill

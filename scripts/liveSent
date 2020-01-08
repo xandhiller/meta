@@ -1,3 +1,0 @@
-#! /bin/sh --
-
-echo $1 | entr pkill sent && sent $1
