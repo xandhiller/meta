@@ -2,6 +2,27 @@ snippet sympy "sympy block " w
 sympy $1 sympy$0
 endsnippet
 
+global !p
+def titlise(sentence):
+    split_sentence = sentence.split(' ')
+    titlised_split = []
+    for i,word in enumerate(split_sentence):
+        if i is 1 or word not in ['a','is','and','the','it']:
+            titlised_word = word[0].upper() + word[1:]
+        else:
+            titlised_word = word
+        titlised_split.append(titlised_word)
+    titlised = ' '.join(titlised_split)
+    return titlised
+endglobal
+
+snippet "([\s|A-Za-z]+[^.!?]*[.!?]) test" "test" r
+`!p snip.rv = titlise(match.group(1))`
+endsnippet
+
+snippet "(\w*)ttl" "Title-ize a sentence" rw
+`!p snip.rv=titlise(match.group(1))`
+endsnippet
 
 priority 10000
 snippet 'sympy(.*)sympy' "evaluate sympy" wr

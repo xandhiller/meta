@@ -1,0 +1,10 @@
+snippet "(\w*)?ref" "Create a reference"  rw
+@${1:`!p if match.group(1) is not None: snip.rv=match.group(1)`}{${2:ref_name},
+author    = "$3",
+title     = "$4",
+publisher = "$5",
+year      =  ${6:enter_int},
+address   = "$7",
+edition   = "$8"
+}$0
+endsnippet
