@@ -1,27 +1,17 @@
 # Run Scripts/Configs
-font pango:Dejavu Sans Mono 16
+font pango:Dejavu Sans Mono 12
 set $mod Mod4
 set $alt Mod1
 # set $fn   XF86WakeUp
-set $term st
-set $lock ~/.scripts/pLock.sh
-set $kbLight python3 /usr/local/bin/kb-light.py --up
-set $touchpad exec --no-startup-id sh ~/.scripts/touch_toggle
-set $terminalDraw ~/.scripts/term
-set $textbookOpener ~/.scripts/textbookOpener
-set $listScripts ~/.scripts/listScripts
-set $brightness ~/.scripts/brightness
-set $surface_sounds ~/.scripts/surface_sounds
+set $term gnome-terminal
+#set $lock ~/.scripts/pLock.sh
+#set $textbookOpener ~/.scripts/textbookOpener
+#set $listScripts ~/.scripts/listScripts
 
-exec --no-startup-id ~/.bashrc
 exec --no-startup-id unclutter -idle 0.1 -root
-exec --no-startup-id $surface_sounds
-exec --no-startup-id xrdb -merge ~/.Xdefaults
-exec --no-startup-id sh ~/.config/keyRemaps
-exec --no-startup-id ~/.scripts/mouse
 exec --no-startup-id compton -f -i 0.8 -b
 
-bindsym $mod+m exec --no-startup-id $term -t "f-follow-mouse" -e nvim "$HOME/.tex_workspace/scratchpad.tex"
+#bindsym $mod+m exec --no-startup-id $term -t "f-follow-mouse" -e nvim "$HOME/.tex_workspace/scratchpad.tex"
 
 
 # Default setup
@@ -90,11 +80,11 @@ client.background         $black
 # Status Bar 
 bar {
 	font pango:mono 8
-    status_command i3blocks
+    status_command i3status
 	position top
     strip_workspace_numbers no
     colors {
-        set $background     "#AAAAAA"
+        set $background     "#888888"
         set $focus          "#CCCCCC"
         background          $background
         statusline          "#000000"
@@ -102,7 +92,7 @@ bar {
         focused_workspace   $focus $focus "#000000"
         inactive_workspace  $background $background "#000000"
   }  
-  tray_padding 2
+  tray_padding 8
 }
 exec --no-startup-id hsetroot -solid "#CCCCCC"
 exec --no-startup-id compton -f -i 0.75 --config ~/.config/compton.conf -b
@@ -221,7 +211,6 @@ bindsym $mod+Down               scratchpad show
 bindsym $mod+Shift+g            gaps inner all set 0; gaps outer all set 0;
 bindsym $mod+$alt+g             gaps inner all set 4; gaps outer all set 1;
 
-exec --no-startup-id sh ~/.scripts/keyRemaps 
 bindsym $mod+y                  exec --no-startup-id sh ~/.scripts/keyRemaps && notify-send "Key mappings refreshed" -t 25
  
 mode "gaps-resize" {
