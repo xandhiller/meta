@@ -1,11 +1,4 @@
 \documentclass{article}
-\author{Alex Hiller}
-\title{}
-% Type-setting
-\setlength{\parindent}{0cm}
-\setlength{\parskip}{0.125cm}
-% \pagenumbering{gobble}
-\usepackage[margin=2.5cm]{geometry} % Formatting
 \usepackage{amsmath}      % Mathematics
 \usepackage{amssymb}      % Mathematics
 \usepackage{listings}     % Listings
@@ -22,18 +15,17 @@
 \usepackage{transparent}
 \usepackage{xcolor}
 \usepackage{blindtext}
-\newcommand{\incfig}[1]{%
-    \def\svgwidth{0.5\columnwidth}
-    \import{./figures/}{#1.pdf_tex}
-}
-\pdfsuppresswarningpagegroup=1
-\setsvg{inkscape=inkscape -z -D}
-\input{/home/alex/Templates/tex/texMacros}
-% Section formatting
+\input{/home/alex/Meta/templates/tex/texMacros}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% FORMATTING %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\author{Alex Hiller}
+\title{}
+\usepackage[margin=2.5cm]{geometry} % Formatting
 \titleformat{\section}{\huge \bfseries}{}{0em}{}[]
 \titleformat{\subsection}{\Large \bfseries}{}{0em}{}
 \titleformat{\subsubsection}{\bfseries}{}{0em}{}
-
+\setlength{\parindent}{0cm}
+\setlength{\parskip}{0.125cm}
+% \pagenumbering{gobble}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{document}
