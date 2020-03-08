@@ -4,10 +4,11 @@ set $mod Mod4
 set $alt Mod1
 # set $fn   XF86WakeUp
 set $term gnome-terminal
-#set $lock ~/.scripts/pLock.sh
-#set $textbookOpener ~/.scripts/textbookOpener
-#set $listScripts ~/.scripts/listScripts
+set $textbookOpener ~/Meta/scripts/textbook_opener.sh
+set $listScripts ~/Meta/scripts/list_scripts.sh
 
+#set $lock ~/Meta/scripts/pLock.sh
+#
 exec --no-startup-id unclutter -idle 0.1 -root
 exec --no-startup-id compton -f -i 0.8 -b
 

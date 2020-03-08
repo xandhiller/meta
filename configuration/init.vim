@@ -28,9 +28,8 @@ set breakindent
 set updatecount=1
 set updatetime=100
 set shada='50,<1000,s100,:0,n~/nvim/shada
-set conceallevel=2
-set concealcursor=c
-
+"set conceallevel=2
+"set concealcursor=c
 
 " HIGHLIGHTS/COLOUR-SCHEME
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -80,6 +79,9 @@ Plugin 'vim-scripts/TagHighlight'
 Plugin 'vim-scripts/DoxygenToolkit.vim'
 Plugin 'KeitaNakamura/tex-conceal.vim' 
 Plugin 'reedes/vim-pencil'
+    " For toggling to switch between hard-wrap and off.
+"    call pencil#init({'wrap': 'hard'})
+    let g:pencil#conceallevel = 0
 Plugin 'junegunn/goyo.vim'
     nnoremap <C-c> :Goyo<CR>:<CR>:<Esc>
     function! s:goyo_enter()
@@ -112,16 +114,16 @@ Plugin 'lervag/vimtex'
     let g:vimtex_quickfix_mode=0
     let g:vimtex_matchparen_enabled=0
     "let g:tex_fast = 'M'
-    let g:tex_conceal='abdmgs'
+    let g:tex_conceal=''
 Plugin 'scrooloose/nerdtree'      
     map <M-Space> :NERDTreeRefreshRoot<CR>:NERDTreeToggle<CR><C-w>=
 Plugin 'xuhdev/vim-latex-live-preview'
     let g:livepreview_previewer = 'zathura'
-Plugin 'junegunn/fzf'
+"Plugin 'junegunn/fzf'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
-Plugin 'JuliaEditorSupport/julia-vim'
-    let g:latex_to_unicode_file_types = ".md" 
+"Plugin 'JuliaEditorSupport/julia-vim'
+    "let g:latex_to_unicode_file_types = ".md" 
 "Plugin 'tpope/vim-markdown'
 "    let g:markdown_fenced_languages = ['c', 'cpp', 'python', 'bash=sh']
 "    let g:markdown_minlines = 50
@@ -178,9 +180,51 @@ function! HLtoggle()
 endfunction
 nnoremap <Leader><CR> :call HLtoggle()<CR>
 
+" Toggle deadkeys on the fly -- and inidicate status to user.
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:DK=0
+function! DKtoggle()
+    if !g:DK
+        let g:DK=1
+        "
+        inoremap e' é
+        inoremap e` è
+        inoremap e> ê
+        inoremap u' ú
+        inoremap u` ù
+        inoremap u> û
+        inoremap o> ô
+        inoremap i> î
+        inoremap CS ç
+        inoremap a` à
+        inoremap a' á
+        echom "Dead Keys on."
+    else
+        let g:DK=0
+        "
+        inoremap e' e'
+        inoremap e> e>
+        inoremap e` e`
+        inoremap u' u'
+        inoremap u` u`
+        inoremap u> u>
+        inoremap o> o>
+        inoremap i> i>
+        inoremap CS CS
+        inoremap a` a`
+        inoremap a' a'
+        echom "Dead Keys off."
+    endif
+endfunction
+nnoremap <Leader>d :call DKtoggle()<CR>
+inoremap <Leader>d <Esc>:call DKtoggle()<CR>a
+
 
 "  SHORTCUTS/MAPPINGS/ABREVIATIONS
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""" for command mode
+nnoremap <S-Tab> <<
+inoremap <S-Tab> <C-d>
+""""""""""""""""""""""""""""""""""""""""
 " Unmapping rubbish keys
 nnoremap Q      <Nop>
 vnoremap Q      <Nop>
@@ -216,7 +260,7 @@ vnoremap <Left>   <Nop>
 vnoremap <Up>     <Nop>
 vnoremap <Down>   <Nop>
 " Compile the current document into markdown syntax pdf.
-nnoremap <Leader>d :w<CR>:silent ! livemd.py %:p %:p<CR>:source $MYVIMRC<CR>
+" nnoremap <Leader>d :w<CR>:silent ! livemd.py %:p %:p<CR>:source $MYVIMRC<CR>
 " Edit init.vim on the fly
 nnoremap <Leader>vv :vsp $MYVIMRC<CR>
 " Moving around windows
@@ -336,6 +380,14 @@ vnoremap <Leader>{ <Esc>?<++><CR>
 inoremap <Leader>. <Esc>/<++><CR>
 nnoremap <Leader>. <Esc>/<++><CR>
 vnoremap <Leader>. <Esc>><CR>
+" <Leader>P Toggle Pencil-Hard mode for writing.
+inoremap <Leader>p <Esc>:PencilToggle<CR>a
+nnoremap <Leader>p <Esc>:PencilToggle<CR>
+vnoremap <Leader>p <Esc>:PencilToggle<CR>
+vnoremap <C-p> <Esc>gqap<CR>
+let g:pencil#mode_indicators = {'hard': '[Pncl:HARD]', 'auto': '[Pncl:AUTO]', 'soft': '[Pncl:AUTO]', 'off': '',}
+set statusline=%<%f\ %h%m%r%w\ \ \ \ \ %{PencilMode()}\ %=\ col\ %c%V\ \ line\ %l\,%L\ %P
+set rulerformat=%-12.(%l,%c%V%)%{PencilMode()}\ %P
 " For syntax highlighting based on ctags.
 nnoremap <F8> <Esc>:w<CR><Esc>:! ctags -R<CR><Esc>:UpdateTypesFile<CR>
 inoremap <F8> <Esc>:w<CR><Esc>:! ctags -R<CR><Esc>:UpdateTypesFile<CR>
@@ -392,13 +444,6 @@ augroup pySettings
     " Template
     au BufNewFile *.py read /home/alex/Templates/code/py.py
 augroup END
-" Pencil.vim - for writing settings in vim
-augroup pencil 
-    au!
-    autocmd Filetype markdown PencilHard
-    autocmd Filetype mkd PencilHard
-    autocmd Filetype tex PencilHard
-    augroup END
 " .tex -- line wrapping handled by pencil.vim
 augroup texSettings
     au!
@@ -505,3 +550,5 @@ set wildignore+=*.zip,*.tar.gz,=*.tar.bz2,*.rar,*.tar.xz,*.kgb
 set wildignore+=*.swp,.lock,.DS_Store,._*
 
 
+nnoremap j gj
+nnoremap k gk
