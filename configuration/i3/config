@@ -7,7 +7,7 @@ set $term gnome-terminal
 set $textbookOpener ~/Meta/scripts/textbook_opener.sh
 set $listScripts ~/Meta/scripts/list_scripts.sh
 
-#set $lock ~/Meta/scripts/pLock.sh
+set $lock i3lock --color=#000000
 #
 exec --no-startup-id unclutter -idle 0.1 -root
 exec --no-startup-id compton -f -i 0.8 -b
