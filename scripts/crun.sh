@@ -15,6 +15,7 @@ fullName="$1"
 baseName="$(echo $fullName | sed -e 's/\.c//g')"
 errorFile="$baseName.cerror"
 
+pwd="$(pwd)"
 ############################################################
 # Remove the previous error file.
 touch "$(pwd)/bin/$errorFile"
@@ -24,7 +25,7 @@ rm "$(pwd)/bin/$baseName"
 ############################################################
 
 # Compile statement.
-gcc -Wall -o "./bin/$baseName" $fullName -lm | grep --color=always . > "./bin/$errorFile"
+gcc -Wall -o "./bin/$baseName" "$(ls $pwd/bin/*.o 2> /dev/null | sed ':begin;$!N;s/\n/ /;tbegin'  )" $fullName -lm | grep --color=always . > "./bin/$errorFile"
 
 ############################################################
 # If it compiled, run it.

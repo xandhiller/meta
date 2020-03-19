@@ -8,3 +8,13 @@ address   = "$7",
 edition   = "$8"
 }$0
 endsnippet
+
+snippet web "website reference" 
+@misc{${1:ref_name},
+author    = "{$2}",
+title     = "$3",
+howpublished = {\url{$4}},
+year      =  ${5:enter_int},
+note = {Accessed: ${6:today}$7}
+}
+endsnippet

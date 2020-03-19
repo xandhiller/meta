@@ -119,19 +119,10 @@ Plugin 'scrooloose/nerdtree'
     map <M-Space> :NERDTreeRefreshRoot<CR>:NERDTreeToggle<CR><C-w>=
 Plugin 'xuhdev/vim-latex-live-preview'
     let g:livepreview_previewer = 'zathura'
-"Plugin 'junegunn/fzf'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
-"Plugin 'JuliaEditorSupport/julia-vim'
-    "let g:latex_to_unicode_file_types = ".md" 
-"Plugin 'tpope/vim-markdown'
-"    let g:markdown_fenced_languages = ['c', 'cpp', 'python', 'bash=sh']
-"    let g:markdown_minlines = 50
 Plugin 'vim-scripts/vim-auto-save'
 Plugin 'kshenoy/vim-signature'
-Plugin 'junegunn/fzf.vim'
-    " Search for files and open.
-    nnoremap <C-Space> :Files<CR> 
 call vundle#end()
 filetype plugin indent on
 syntax on
@@ -552,3 +543,6 @@ set wildignore+=*.swp,.lock,.DS_Store,._*
 
 nnoremap j gj
 nnoremap k gk
+
+nnoremap <leader>b <Esc>:vsp references.bib<CR>
+nnoremap <leader><S-b> <Esc>:! ln -s ~/Meta/templates/tex/references.bib .<CR>

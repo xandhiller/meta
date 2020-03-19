@@ -19,7 +19,8 @@ CMAKE=`ls | grep "CMakeLists.txt"`
 if [ "X"$CMAKE = "X" ]
 then
     mkdir -p bin
-    echo "[No 'CMakeLists.txt' file detected. Compiling with g++.]\n\n"
+    echo "[No 'CMakeLists.txt' file detected. Compiling with g++.]"
+    echo ""
     # Remove the previous error file.
     touch $(pwd)/$errorFile
     rm $(pwd)/$errorFile

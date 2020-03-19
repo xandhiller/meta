@@ -92,10 +92,10 @@ context "text()"
 snippet table "Create LaTeX table"
 \begin{table}[!htbp]
 	\centering
-	\begin{tabular}{$1} \hline
+	\begin{tabularx}{\textwidth}{$1} \hline
 		$2
 		\hline
-	\end{tabular}
+	\end{tabularx}
 \end{table}
 endsnippet
 
@@ -1195,3 +1195,8 @@ snippet IN "inner product" w
 \left\langle $1 \ , \ $2 \right\rangle$0
 endsnippet
 
+context "text()"
+snippet bib "Bibliography" bA
+\bibliographystyle{${1:apalike}}
+\bibliography{${2:references}}
+endsnippet	

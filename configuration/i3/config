@@ -1,10 +1,11 @@
 # Run Scripts/Configs
-font pango:Dejavu Sans Mono 12
+font pango:Dejavu Sans Mono 15
 set $mod Mod4
 set $alt Mod1
 # set $fn   XF86WakeUp
 set $term gnome-terminal
 set $textbookOpener ~/Meta/scripts/textbook_opener.sh
+set $paperOpener ~/Meta/scripts/paper_opener.sh
 set $listScripts ~/Meta/scripts/list_scripts.sh
 
 set $lock i3lock --color=#000000
@@ -80,7 +81,7 @@ client.background         $black
 
 # Status Bar 
 bar {
-	font pango:mono 8
+	font pango:mono 15
     status_command i3status
 	position top
     strip_workspace_numbers no
@@ -115,7 +116,8 @@ bindsym $mod+Shift+Right        move container to workspace next;
 # Keybound utilities
 bindsym $fn+space $kbLight
 bindsym $mod+Shift+d            exec --no-startup-id openDownloads
-bindsym $mod+a                  exec --no-startup-id $textbookOpener
+bindsym $mod+t                  exec --no-startup-id $textbookOpener
+bindsym $mod+p                  exec --no-startup-id $paperOpener
 bindsym $mod+F12                exec --no-startup-id $lock
 bindsym $mod+s                  exec --no-startup-id $listScripts
 bindsym $mod+$alt+Return         exec --no-startup-id $term -e ranger
@@ -239,7 +241,6 @@ bindsym $mod+$alt+Control+j resize grow   height  2 px or 2 ppt
 bindsym $mod+$alt+Control+k resize shrink height  2 px or 2 ppt
 bindsym $mod+$alt+Control+l resize grow   width   2 px or 2 ppt
 
-bindsym $mod+t exec --no-startup-id touchpad_toggle
 
 
 for_window [ title="f-bottom-middle" ] floating enable, resize set 1200 850, move position mouse 
