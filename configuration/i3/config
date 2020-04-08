@@ -17,8 +17,8 @@ exec --no-startup-id compton -f -i 0.8 -b
 
 
 # Default setup
-#gaps inner              0
-#gaps outer              0
+gaps inner              8
+gaps outer              6
 new_window pixel        4
 focus_follows_mouse     no
 floating_modifier       $mod
@@ -64,9 +64,9 @@ set $darkgrey    "#606060"
 set $subtlegrey  "#353535"
 
 # This colour is the highlight colour of windows.
-set $col         "#9999FF"
+set $col         "#5555FF"
 set $acol        "#FFFFFF"
-set $col2        "#FFFFFF"
+set $col2        "#BBBBBB"
 set $acol2       "#FFFFFF"
 set $col3        "#FFFFFF" 
 set $acol3       "#FFFFFF"
@@ -81,7 +81,7 @@ client.background         $black
 
 # Status Bar 
 bar {
-	font pango:mono 15
+	font pango:mono 10
     status_command i3status
 	position top
     strip_workspace_numbers no

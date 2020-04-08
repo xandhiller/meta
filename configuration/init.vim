@@ -73,6 +73,8 @@ endfunction
 set rtp+=~/.vim/bundle/Vundle.vim/ 
 filetype off
 call vundle#begin()
+Plugin 'vim-scripts/Vimball'
+Plugin 'vim-scripts/Conque-GDB'
 Plugin 'VundleVim/Vundle.vim'     
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'vim-scripts/TagHighlight'

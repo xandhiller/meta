@@ -1,12 +1,28 @@
 set page-padding 1
+set default-bg "#EEEEEE"
+
+
 set statusbar-basename false
 set statusbar-bg "#FFFFFF"
 set statusbar-fg "#333333"
+
+
+set highlight-color "#8888FF"
+set highlight-transparency 0.1
+
+
 set recolor-lightcolor "#FFFFFF"
 set recolor-darkcolor "#000000"
 set recolor "true"
-set selection-clipboard clipboardtrue
-set default-bg "#EEEEEE"
+
+
 set first-page-column 2:1
+# Change whether title page is in column 1 or 2.
 map <C-1> feedkeys :set<Space>first-page-column<Space>2:1<Return>
 map <C-2> feedkeys :set<Space>first-page-column<Space>1:2<Return>
+
+
+set selection-clipboard null
+# Turn on and off (respectively) clipboard selection 
+map <C-c> feedkeys :set<Space>selection-clipboard<Space>clipboard<Return>
+map <C-s> feedkeys :set<Space>selection-clipboard<Space>null<Return>

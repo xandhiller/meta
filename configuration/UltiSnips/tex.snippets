@@ -251,19 +251,19 @@ endsnippet
 
 
 context "math()"
-snippet <= "leq" iA
-\le 
+snippet leq "leq" i
+\leq$0
 endsnippet
 
 
 context "math()"
-snippet >= "geq" iA
-\ge 
+snippet geq "geq" i
+\geq$0
 endsnippet
 
 
 context "math()"
-snippet EE "geq" iA
+snippet EE "There exists" iA
 \exists \\$0
 endsnippet
 
@@ -341,18 +341,6 @@ context "math()"
 snippet set "Set Notation" wA
 \\{ $1 \\}
 endsnippet
-
-context "math()"
-snippet sq "square" iA
-^{2}
-endsnippet
-
-
-#context "math()"
-#snippet cb "cube" iA
-#^{3}
-#endsnippet
-
 
 context "math()"
 snippet ss "subscript superscript" i
@@ -525,7 +513,7 @@ $1
 endsnippet
 
 context "math()"
-snippet PI "PI" iA
+snippet pi "pi" w
 \pi$0
 endsnippet
 
@@ -615,7 +603,7 @@ snippet "([a-zA-Z]*)cal" "Calligraphic letters in math mode" riA
 endsnippet
 
 context "math()"
-snippet "([a-zA-Z]*)bb" "Set Notation letters in math mode" riA
+snippet "([a-zA-Z]+)bb" "Set Notation letters in math mode" riA
 \mathbb{`!p snip.rv=match.group(1)`}$0
 endsnippet
 
@@ -681,13 +669,6 @@ context "math()"
 snippet <- "leftarrow" iA
 \leftarrow$0
 endsnippet
-
-
-context "math()"
-snippet bb "bracket" wi
-\left[ $1 \right]$0
-endsnippet
-
 
 context "math()"
 snippet rank "rank()" 
@@ -1002,26 +983,8 @@ snippet note "note" bA
 endsnippet
 
 context "math()"
-snippet equiv "Equivalent" wA
+snippet equiv "Equivalent" i
 \equiv$0
-endsnippet
-
-
-
-context "math()"
-snippet lE "less than" wA
-\leq
-endsnippet
-
-context "math()"
-snippet ge "less than" wA
-\ge
-endsnippet
-
-
-context "math()"
-snippet gE "less than" wA
-\geq
 endsnippet
 
 
@@ -1200,3 +1163,27 @@ snippet bib "Bibliography" bA
 \bibliographystyle{${1:apalike}}
 \bibliography{${2:references}}
 endsnippet	
+
+context "math()"
+snippet leq "less than or equal to" i
+\leq$0
+endsnippet
+
+context "text()"
+snippet toc "table of contents" bA
+\tableofcontents
+endsnippet
+
+context "text()"
+snippet make "maketitle" bA
+\maketitle
+endsnippet
+
+context "math()"
+snippet "ab(c|o)" "(a,b) or [a,b]" wA
+`!p
+if match.group(1) is "c": 
+	snip.rv="[a,b]"
+else if match.group(1) is "o":
+	snip.rv="(a,b)" `
+endsnippet
