@@ -18,3 +18,16 @@ year      =  ${5:enter_int},
 note = {Accessed: ${6:today}$7}
 }
 endsnippet
+
+
+snippet art "article reference" 
+@article{${1:ref_name},
+author   = "{$2}",
+title    = "$3",
+journal  = "$4",
+year     = ${5:enter_int},
+pages    = "${6:start}--${7:end}",
+volume   = ${8:enter_int},
+number   = ${9:enter_int},
+}
+endsnippet

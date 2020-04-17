@@ -74,7 +74,7 @@ set rtp+=~/.vim/bundle/Vundle.vim/
 filetype off
 call vundle#begin()
 Plugin 'vim-scripts/Vimball'
-Plugin 'vim-scripts/Conque-GDB'
+"Plugin 'ycm-core/YouCompleteMe'
 Plugin 'VundleVim/Vundle.vim'     
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'vim-scripts/TagHighlight'
@@ -440,7 +440,7 @@ augroup END
 " .tex -- line wrapping handled by pencil.vim
 augroup texSettings
     au!
-    au Filetype tex nnoremap <C-e> :VimtexErrors<CR>
+    au Filetype tex nnoremap <C-E> :VimtexErrors<CR>
     au FileType tex set listchars=eol:¬,tab:\▸\ ,trail:~,extends:>,precedes:<
     au FileType tex normal zfip
     " Enable AutoSave for continuous compilation

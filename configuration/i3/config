@@ -1,5 +1,5 @@
 # Run Scripts/Configs
-font pango:Dejavu Sans Mono 15
+font pango:Dejavu Sans Mono 9
 set $mod Mod4
 set $alt Mod1
 # set $fn   XF86WakeUp
@@ -7,14 +7,12 @@ set $term gnome-terminal
 set $textbookOpener ~/Meta/scripts/textbook_opener.sh
 set $paperOpener ~/Meta/scripts/paper_opener.sh
 set $listScripts ~/Meta/scripts/list_scripts.sh
-
+set $semester_files_opener ~/Meta/scripts/semester_files_opener.sh
+set $teaching_files_opener ~/Meta/scripts/teaching_files_opener.sh
 set $lock i3lock --color=#000000
-#
-exec --no-startup-id unclutter -idle 0.1 -root
-exec --no-startup-id compton -f -i 0.8 -b
 
-#bindsym $mod+m exec --no-startup-id $term -t "f-follow-mouse" -e nvim "$HOME/.tex_workspace/scratchpad.tex"
-
+set $gaps_inner 8
+set $gaps_outer 6
 
 # Default setup
 gaps inner              8
@@ -81,22 +79,24 @@ client.background         $black
 
 # Status Bar 
 bar {
-	font pango:mono 10
+	font pango:mono 9
     status_command i3status
 	position top
     strip_workspace_numbers no
     colors {
-        set $background     "#888888"
-        set $focus          "#CCCCCC"
-        background          $background
+        set $background     "#AAAAAA"
+        set $focus          "#DDDDDD"
+        background          "#888888"
         statusline          "#000000"
         separator           $background
-        focused_workspace   $focus $focus "#000000"
+        focused_workspace   "#5555FF" $focus "#000000"
+        active_workspace    "#CCCCCC" "#CCCCCC" "#000000"
+        focused_background  "#AAAAAA" 
         inactive_workspace  $background $background "#000000"
   }  
   tray_padding 8
 }
-exec --no-startup-id hsetroot -solid "#CCCCCC"
+exec --no-startup-id xsetroot -solid "#DDDDDD"
 exec --no-startup-id compton -f -i 0.75 --config ~/.config/compton.conf -b
 exec --no-startup-id flashfocus
 bindsym $mod+Delete exec --no-startup-id flash_window
@@ -117,17 +117,14 @@ bindsym $mod+Shift+Right        move container to workspace next;
 bindsym $fn+space $kbLight
 bindsym $mod+Shift+d            exec --no-startup-id openDownloads
 bindsym $mod+t                  exec --no-startup-id $textbookOpener
+bindsym $mod+Shift+t            exec --no-startup-id $semester_files_opener
+bindsym $mod+$alt+t            exec --no-startup-id $teaching_files_opener
 bindsym $mod+p                  exec --no-startup-id $paperOpener
 bindsym $mod+F12                exec --no-startup-id $lock
 bindsym $mod+s                  exec --no-startup-id $listScripts
 bindsym $mod+$alt+Return         exec --no-startup-id $term -e ranger
 bindsym XF86MonBrightnessDown   exec --no-startup-id $brightness down
 bindsym XF86MonBrightnessUp     exec --no-startup-id $brightness up
-# Screen adjustments
-# bindsym $mod+Shift+Right        exec --no-startup-id xrandr --output HDMI-1 --rotate right
-# bindsym $mod+Shift+Down         exec --no-startup-id xrandr --output HDMI-1 --rotate normal
-# bindsym $mod+Shift+Up           exec --no-startup-id xrandr --output HDMI-1 --rotate inverted
-# bindsym $mod+Shift+Left         exec --no-startup-id xrandr --output HDMI-1 --rotate left  
 # Use Mouse+$mod to drag floating windows to their wanted position
 bindsym $mod+Return             exec $term
 bindsym $mod+q                  kill
@@ -209,13 +206,11 @@ bindsym $mod+$alt+space         floating toggle, resize set 800 700, move positi
 # bindsym $mod+i                  exec scrot && notify-send "Screenshot taken" -t 25
 bindsym $mod+Shift+Down                 move scratchpad
 bindsym $mod+Down               scratchpad show
-# bindsym $mod+t                  $touchpad
-# Gap tweaks
-bindsym $mod+Shift+g            gaps inner all set 0; gaps outer all set 0;
-bindsym $mod+$alt+g             gaps inner all set 4; gaps outer all set 1;
 
-bindsym $mod+y                  exec --no-startup-id sh ~/.scripts/keyRemaps && notify-send "Key mappings refreshed" -t 25
  
+# Gaps formatting
+bindsym $mod+Shift+g            gaps inner all set 0; gaps outer all set 0;
+bindsym $mod+$alt+g             gaps inner all set $gaps_inner; gaps outer all set $gaps_outer;
 mode "gaps-resize" {
         bindsym j       gaps inner all minus  5px
         bindsym k       gaps inner all plus   5px
@@ -234,18 +229,15 @@ bindsym $mod+$alt+j resize grow   height  10 px or 10 ppt
 bindsym $mod+$alt+k resize shrink height  10 px or 10 ppt
 bindsym $mod+$alt+l resize grow   width   10 px or 10 ppt
 
-
 # Fine resizing
 bindsym $mod+$alt+Control+h resize shrink width   2 px or 2 ppt
 bindsym $mod+$alt+Control+j resize grow   height  2 px or 2 ppt
 bindsym $mod+$alt+Control+k resize shrink height  2 px or 2 ppt
 bindsym $mod+$alt+Control+l resize grow   width   2 px or 2 ppt
 
-
-
 for_window [ title="f-bottom-middle" ] floating enable, resize set 1200 850, move position mouse 
 for_window [ title="f-follow-mouse" ] floating enable, resize set 1200 500, move position center 
 for_window [ class="Inkscape" ] floating enable
-bindsym $mod+i resize set 2400 1500, move position center
+bindsym $mod+i resize set 1200 800, move position center
 
 for_window [ class="Yad" ] floating enable, move position center;

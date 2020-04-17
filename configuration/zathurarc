@@ -3,12 +3,26 @@ set default-bg "#EEEEEE"
 
 
 set statusbar-basename false
-set statusbar-bg "#FFFFFF"
+set statusbar-bg "#EEEEEE"
 set statusbar-fg "#333333"
 
 
+set completion-bg "#EEEEEE"
+set completion-fg "#000000"
+set completion-highlight-bg "#8888FF"
+set completion-highlight-fg "#EEEEEE"
+set completion-group-bg "#EEEEEE"
+set completion-group-fg "#2222FF"
+set inputbar-bg "#EEEEEE"
+set inputbar-fg "#2222CC"
+set default-bg "#EEEEEE"
+set default-fg "#2222FF"
+set scrollbar-bg "#EEEEEE"
+set scrollbar-fg "#2222FF"
+
+
 set highlight-color "#8888FF"
-set highlight-transparency 0.1
+set highlight-transparency 0.2
 
 
 set recolor-lightcolor "#FFFFFF"

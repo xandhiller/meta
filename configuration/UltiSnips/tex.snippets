@@ -580,6 +580,7 @@ snippet "([a-zA-Z]*)bf" "bold font in text mode" ri
 endsnippet
 
 
+priority 1000
 context "text()"
 snippet "([a-zA-Z]*)it" "itallic font in text mode" ri
 \textit{`!p snip.rv=match.group(1)`${1:${VISUAL}}}$0
@@ -879,8 +880,8 @@ endsnippet
 
 
 context "math()"
-snippet norm "Unit normal vector" wA
-\mathbf{\hat{n}}
+snippet norm "norm of a space" wA
+\| $1 \|$0
 endsnippet
 
 context "math()"
@@ -1187,3 +1188,50 @@ if match.group(1) is "c":
 else if match.group(1) is "o":
 	snip.rv="(a,b)" `
 endsnippet
+
+context "math()"
+snippet ip "inner product" w
+\langle $1 \rangle$0
+endsnippet
+
+context "text()"
+snippet def "define environment" bA
+\begin{define}
+	$1
+\end{define}$0
+endsnippet		
+
+context "text()"
+snippet proof "proof environment" bA
+\begin{proof}
+	$1
+\end{proof}$0
+endsnippet		
+
+context "text()"
+snippet assert "assertion environment" bA
+\begin{assert}
+	$1
+\end{assert}$0
+endsnippet		
+
+context "text()"
+snippet theorem "theorem environment" bA
+\begin{theorem}
+	$1
+\end{theorem}$0
+endsnippet	
+
+context "text()"
+snippet Theorem "theorem environment" bA
+\begin{Theorem}
+	$1
+\end{Theorem}$0
+endsnippet	
+
+context "text()"
+snippet remark "remark environment" bA
+\begin{remark}
+	$1
+\end{remark}$0
+endsnippet	
