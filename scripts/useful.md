@@ -10,3 +10,6 @@ Rebooting the wifi:
 
 Search through pdfs in a directory.
 `for f in pdf_directory; do echo $f; pdftotext $f - | grep -i "search_term"; done`
+
+Zipping file(s):
+`zip -r filename.zip folder1 folder2`

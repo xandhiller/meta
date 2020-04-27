@@ -9,6 +9,7 @@ set $paperOpener ~/Meta/scripts/paper_opener.sh
 set $listScripts ~/Meta/scripts/list_scripts.sh
 set $semester_files_opener ~/Meta/scripts/semester_files_opener.sh
 set $teaching_files_opener ~/Meta/scripts/teaching_files_opener.sh
+set $browser firefox
 set $lock i3lock --color=#000000
 
 set $gaps_inner 8
@@ -196,7 +197,7 @@ bindsym $mod+Shift+$alt+0       move container to workspace $ws20
 bindsym $mod+Shift+r            restart
 bindsym $mod+Shift+e            exec "i3-nagbar -b 'Yes, exit i3' 'i3-msg exit'"
 #Browser
-bindsym $mod+Shift+Return       exec --no-startup-id chromium-browser
+bindsym $mod+Shift+Return       exec --no-startup-id $browser
 bindsym $mod+Shift+p            exec --no-startup-id $term -e python3 
 bindsym $mod+c                  move position center
 bindsym $mod+$fn+space          floating toggle, resize set 625 400

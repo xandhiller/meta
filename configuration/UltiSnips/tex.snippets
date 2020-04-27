@@ -314,12 +314,6 @@ snippet ... "ldots" iA
 \ldots$0
 endsnippet
 
-context "text()"
-snippet ... "ldots" iA
-\ldots 
-endsnippet
-
-
 context "math()"
 snippet iin "contained in" iA
 \in
@@ -485,7 +479,7 @@ endsnippet
 #endsnippet
 
 context "math()"
-snippet PP "Parantheses" wA
+snippet PP "Parantheses" wiA
 \left(${1:${VISUAL}}\right)$0
 endsnippet
 
@@ -510,11 +504,6 @@ snippet \left(\right) "Parantheses" w
 \left(
 $1
 \right)
-endsnippet
-
-context "math()"
-snippet pi "pi" w
-\pi$0
 endsnippet
 
 
@@ -1202,6 +1191,13 @@ snippet def "define environment" bA
 endsnippet		
 
 context "text()"
+snippet Def "define environment" bA
+\begin{Define}{$1}
+	$2
+\end{Define}$0
+endsnippet		
+
+context "text()"
 snippet proof "proof environment" bA
 \begin{proof}
 	$1
@@ -1216,6 +1212,21 @@ snippet assert "assertion environment" bA
 endsnippet		
 
 context "text()"
+snippet example "assertion environment" bA
+\begin{example}
+	$1
+\end{example}$0
+endsnippet		
+
+
+context "text()"
+snippet Example "assertion environment" bA
+\begin{Example}{$1}
+	$2
+\end{Example}$0
+endsnippet		
+
+context "text()"
 snippet theorem "theorem environment" bA
 \begin{theorem}
 	$1
@@ -1224,8 +1235,8 @@ endsnippet
 
 context "text()"
 snippet Theorem "theorem environment" bA
-\begin{Theorem}
-	$1
+\begin{Theorem}{$1}
+	$2
 \end{Theorem}$0
 endsnippet	
 

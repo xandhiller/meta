@@ -73,14 +73,8 @@ endfunction
 set rtp+=~/.vim/bundle/Vundle.vim/ 
 filetype off
 call vundle#begin()
-Plugin 'vim-scripts/Vimball'
 "Plugin 'ycm-core/YouCompleteMe'
 Plugin 'VundleVim/Vundle.vim'     
-Plugin 'terryma/vim-multiple-cursors'
-Plugin 'vim-scripts/TagHighlight'
-Plugin 'vim-scripts/DoxygenToolkit.vim'
-Plugin 'KeitaNakamura/tex-conceal.vim' 
-Plugin 'reedes/vim-pencil'
     " For toggling to switch between hard-wrap and off.
 "    call pencil#init({'wrap': 'hard'})
     let g:pencil#conceallevel = 0
@@ -119,8 +113,6 @@ Plugin 'lervag/vimtex'
     let g:tex_conceal=''
 Plugin 'scrooloose/nerdtree'      
     map <M-Space> :NERDTreeRefreshRoot<CR>:NERDTreeToggle<CR><C-w>=
-Plugin 'xuhdev/vim-latex-live-preview'
-    let g:livepreview_previewer = 'zathura'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
 Plugin 'vim-scripts/vim-auto-save'
@@ -443,6 +435,7 @@ augroup texSettings
     au Filetype tex nnoremap <C-E> :VimtexErrors<CR>
     au FileType tex set listchars=eol:¬,tab:\▸\ ,trail:~,extends:>,precedes:<
     au FileType tex normal zfip
+    au BufWritePost *.tex VimtexView
     " Enable AutoSave for continuous compilation
 "    au FileType tex let g:auto_save = 1 
 augroup END
