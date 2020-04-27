@@ -76,8 +76,6 @@ call vundle#begin()
 "Plugin 'ycm-core/YouCompleteMe'
 Plugin 'VundleVim/Vundle.vim'     
     " For toggling to switch between hard-wrap and off.
-"    call pencil#init({'wrap': 'hard'})
-    let g:pencil#conceallevel = 0
 Plugin 'junegunn/goyo.vim'
     nnoremap <C-c> :Goyo<CR>:<CR>:<Esc>
     function! s:goyo_enter()
@@ -330,9 +328,6 @@ nmap si ysi
 nnoremap <Leader>i :set list!<CR>
 " Toggle Relative Number
 nnoremap <silent> <leader>nb :set relativenumber!<CR>
-" Inkscape figures:
-inoremap <C-f> <Esc>: silent exec '.!inkscape-figures create "'.getline('.').'" "'.b:vimtex.root.'/figures/"'<CR><CR>:w<CR>
-nnoremap <C-f> : silent exec '!inkscape-figures edit "'.b:vimtex.root.'/figures/" > /dev/null 2>&1 &'<CR><CR>:redraw!<CR>
 " Terminal stuff in nvim
 nnoremap <C-t> :split<cr><c-w><c-j>:terminal<cr>
 "
@@ -365,14 +360,7 @@ vnoremap <Leader>{ <Esc>?<++><CR>
 inoremap <Leader>. <Esc>/<++><CR>
 nnoremap <Leader>. <Esc>/<++><CR>
 vnoremap <Leader>. <Esc>><CR>
-" <Leader>P Toggle Pencil-Hard mode for writing.
-inoremap <Leader>p <Esc>:PencilToggle<CR>a
-nnoremap <Leader>p <Esc>:PencilToggle<CR>
-vnoremap <Leader>p <Esc>:PencilToggle<CR>
 vnoremap <C-p> <Esc>gqap<CR>
-let g:pencil#mode_indicators = {'hard': '[Pncl:HARD]', 'auto': '[Pncl:AUTO]', 'soft': '[Pncl:AUTO]', 'off': '',}
-set statusline=%<%f\ %h%m%r%w\ \ \ \ \ %{PencilMode()}\ %=\ col\ %c%V\ \ line\ %l\,%L\ %P
-set rulerformat=%-12.(%l,%c%V%)%{PencilMode()}\ %P
 " For syntax highlighting based on ctags.
 nnoremap <F8> <Esc>:w<CR><Esc>:! ctags -R<CR><Esc>:UpdateTypesFile<CR>
 inoremap <F8> <Esc>:w<CR><Esc>:! ctags -R<CR><Esc>:UpdateTypesFile<CR>
@@ -385,7 +373,6 @@ nnoremap <M-Left> ?<++><CR>
 
 "" FILETYPE SPECIFIC SETTINGS
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" .md -- line wrapping handled by pencil.vim
 augroup markdownSettings
     au!
     au FileType markdown set tabstop=4 shiftwidth=4
@@ -429,7 +416,6 @@ augroup pySettings
     " Template
     au BufNewFile *.py read /home/alex/Meta/templates/code/py.py
 augroup END
-" .tex -- line wrapping handled by pencil.vim
 augroup texSettings
     au!
     au Filetype tex nnoremap <C-E> :VimtexErrors<CR>
@@ -495,7 +481,6 @@ augroup END
 augroup texScratchpad
     au!
     autocmd BufWinLeave /home/alex/.tex_workspace/scratchpad.tex ! cat % | sed -e 's/\%//g' | sed -e "/^$/d" | xclip -selection clipboard
-    autocmd Bufread /home/alex/.tex_workspace/scratchpad.tex PencilOff
 augroup END
 " Shortcuts for .vim files
 augroup vimFiles
