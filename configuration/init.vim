@@ -402,8 +402,8 @@ augroup END
 augroup pySettings
     au!
     " Run python file
-    au FileType python nnoremap <Leader>r <Esc>:w<CR>:! python3.7 %<CR>
-    au FileType python nnoremap <Leader>R <Esc>:w<CR>:! time python3.7 %<CR>
+    au FileType python nnoremap <Leader>r <Esc>:w<CR>:! python %<CR>
+    au FileType python nnoremap <Leader>R <Esc>:w<CR>:! time python %<CR>
     " Commenting
     au FileType python inoremap <Leader>/ <Esc>g^i#<Space><Esc>$
     au FileType python nnoremap <Leader>/ <Esc>g^i#<Space><Esc>$
@@ -421,7 +421,7 @@ augroup texSettings
     au Filetype tex nnoremap <C-E> :VimtexErrors<CR>
     au FileType tex set listchars=eol:¬,tab:\▸\ ,trail:~,extends:>,precedes:<
     au FileType tex normal zfip
-    au BufWritePost *.tex VimtexView
+    au Filetype tex nnoremap <leader>t <Esc>:VimtexView<CR>
     " Enable AutoSave for continuous compilation
 "    au FileType tex let g:auto_save = 1 
 augroup END
@@ -526,3 +526,5 @@ nnoremap k gk
 
 nnoremap <leader>b <Esc>:vsp references.bib<CR>
 nnoremap <leader><S-b> <Esc>:! ln -s ~/Meta/templates/tex/references.bib .<CR>
+
+

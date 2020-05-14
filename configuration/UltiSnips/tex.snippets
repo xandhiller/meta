@@ -257,7 +257,7 @@ endsnippet
 
 
 context "math()"
-snippet geq "geq" i
+snippet >= "geq" iA
 \geq$0
 endsnippet
 
@@ -1155,7 +1155,7 @@ snippet bib "Bibliography" bA
 endsnippet	
 
 context "math()"
-snippet leq "less than or equal to" i
+snippet <= "less than or equal to" iA
 \leq$0
 endsnippet
 
@@ -1205,6 +1205,14 @@ snippet proof "proof environment" bA
 endsnippet		
 
 context "text()"
+snippet Proof "Proof environment" bA
+\begin{Proof}{$1}
+	$2
+\end{Proof}$0
+endsnippet		
+
+
+context "text()"
 snippet assert "assertion environment" bA
 \begin{assert}
 	$1
@@ -1246,3 +1254,8 @@ snippet remark "remark environment" bA
 	$1
 \end{remark}$0
 endsnippet	
+
+context "math()"
+snippet Lp "L^p space" wA
+L^{p}$0
+endsnippet

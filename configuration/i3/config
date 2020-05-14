@@ -5,6 +5,8 @@ set $alt Mod1
 # set $fn   XF86WakeUp
 set $term gnome-terminal
 set $textbookOpener ~/Meta/scripts/textbook_opener.sh
+set $downloadOpener ~/Meta/scripts/download_pdf_opener.sh
+bindsym $mod+Shift+d exec $downloadOpener
 set $paperOpener ~/Meta/scripts/paper_opener.sh
 set $listScripts ~/Meta/scripts/list_scripts.sh
 set $semester_files_opener ~/Meta/scripts/semester_files_opener.sh
@@ -116,7 +118,6 @@ bindsym $mod+Shift+Right        move container to workspace next;
 # bindsym $mod+Up                 exec --no-startup-id search $(rofi -dmenu -input /dev/null -p "Search: ")
 # Keybound utilities
 bindsym $fn+space $kbLight
-bindsym $mod+Shift+d            exec --no-startup-id openDownloads
 bindsym $mod+t                  exec --no-startup-id $textbookOpener
 bindsym $mod+Shift+t            exec --no-startup-id $semester_files_opener
 bindsym $mod+$alt+t            exec --no-startup-id $teaching_files_opener
