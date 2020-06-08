@@ -432,12 +432,6 @@ endsnippet
 
 
 context "math()"
-snippet omega "Omega" wA
-\omega$1
-endsnippet
-
-
-context "math()"
 snippet of "Function of..." iA
 (${1:${VISUAL}})$0
 endsnippet
@@ -507,16 +501,10 @@ $1
 endsnippet
 
 
-context "math()"
-snippet '((\d+)|(\d*)(\\)?([A-Za-z\)\(\}\{\-]+)((\^|_)(\{\d+\}|\d))*)/' "Fraction" wrA
-\\frac{`!p snip.rv = match.group(1)`}{$1}$0
-endsnippet
-
-
-context "math()"
-snippet // "Frac" wA
-\frac{$1}{$2}$3
-endsnippet
+#context "math()"
+#snippet '((\d+)|(\d*)(\\)?([A-Za-z\)\(\}\{\-]+)((\^|_)(\{\d+\}|\d))*)/' "Fraction" wrA
+#\\frac{`!p snip.rv = match.group(1)`}{$1}$0
+#endsnippet
 
 
 context "math()"
@@ -532,8 +520,8 @@ endsnippet
 
 
 context "math()"
-snippet "([a-zA-Z])dot" "Dot" riA
-\dot{`!p snip.rv=match.group(1)`} 
+snippet "([a-zA-Z])dot" "Dot" ri
+\dot{`!p snip.rv=match.group(1)`}
 endsnippet
 
 
@@ -1259,3 +1247,15 @@ context "math()"
 snippet Lp "L^p space" wA
 L^{p}$0
 endsnippet
+
+context "math()"
+snippet Uga "Unitary reprsentation operator on g with param a" wA
+U^{a}_{g}$0
+endsnippet
+
+context "text()"
+snippet sigalg "sigma algebra" wA
+$\sigma$-algebra$0
+endsnippet
+
+
