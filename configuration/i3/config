@@ -12,18 +12,22 @@ set $listScripts ~/Meta/scripts/list_scripts.sh
 set $semester_files_opener ~/Meta/scripts/semester_files_opener.sh
 set $teaching_files_opener ~/Meta/scripts/teaching_files_opener.sh
 set $browser firefox
+set $selection_screenshot ~/Meta/scripts/selection_screenshot.sh
 set $lock i3lock --color=#000000
 
 set $gaps_inner 8
 set $gaps_outer 6
 
+
 # Default setup
-gaps inner              8
-gaps outer              6
+gaps inner              0
+gaps outer              0
 new_window pixel        4
 focus_follows_mouse     no
 floating_modifier       $mod
 
+
+bindsym $mod+z exec $selection_screenshot
 # Workspace Names
 set $ws1 1 
 set $ws2 2 

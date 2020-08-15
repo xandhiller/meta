@@ -303,7 +303,7 @@ nnoremap <Right> ]'zz
 vnoremap <Right> ]'zz
 " Quickly add marks
 nmap mm m.
-nnoremap GG GGzz
+"nnoremap GG GGzz
 "Replacing spaces with underlines in visual selection + the inverse
 vnoremap <Leader>_ :s/\%V /_/g<CR>
 vnoremap <Leader>- :s/\%V /-/g<CR>

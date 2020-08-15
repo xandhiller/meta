@@ -45,7 +45,9 @@ endsnippet
 
 context "text()"
 snippet dm "Display Math" wA
-\[ $1 \]$0
+\begin{equation}
+	$1
+\end{equation}$0
 endsnippet
 
 context "text()"
@@ -714,12 +716,6 @@ snippet Row "Row space of a matrix" i
 endsnippet
 
 
-context "math()"
-snippet st "such that" wA
-\ | \ $0
-endsnippet
-
-
 context "text()"
 snippet "([a-zA-Z])mn" "" ri
 $`!p snip.rv=match.group(1)`$
@@ -740,7 +736,7 @@ endsnippet
 
 context "math()"
 snippet "([a-zA-Z]*)(_\w)?hat" "Bold font in mathmode" riA
-\hat{`!p 
+\widehat{`!p 
 if match.group(2) != None:
 	snip.rv=match.group(1)+match.group(2)
 else:
@@ -1259,3 +1255,17 @@ $\sigma$-algebra$0
 endsnippet
 
 
+context "math()"
+snippet haar "haar measure" 
+d_{\mu_{L}}
+endsnippet
+
+context "math()"
+snippet label "label" wA
+\label{eq:$1}$0
+endsnippet
+
+context "text()"
+snippet Eq "ref" wA
+Eq~\ref{eq:$1}$0
+endsnippet
