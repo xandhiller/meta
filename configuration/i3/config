@@ -13,6 +13,8 @@ set $semester_files_opener ~/Meta/scripts/semester_files_opener.sh
 set $teaching_files_opener ~/Meta/scripts/teaching_files_opener.sh
 set $browser firefox
 set $selection_screenshot ~/Meta/scripts/selection_screenshot.sh
+set $desk_screens ~/Meta/scripts/desk_screens.sh
+set $laptop_screen ~/Meta/scripts/laptop_screen.sh
 set $lock i3lock --color=#000000
 
 set $gaps_inner 8
@@ -27,7 +29,6 @@ focus_follows_mouse     no
 floating_modifier       $mod
 
 
-bindsym $mod+z exec $selection_screenshot
 # Workspace Names
 set $ws1 1 
 set $ws2 2 
@@ -107,6 +108,11 @@ exec --no-startup-id xsetroot -solid "#DDDDDD"
 exec --no-startup-id compton -f -i 0.75 --config ~/.config/compton.conf -b
 exec --no-startup-id flashfocus
 bindsym $mod+Delete exec --no-startup-id flash_window
+
+# Scrot screen grabs
+bindsym $mod+z exec --no-startup-id $selection_screenshot
+bindsym $mod+F1 exec --no-startup-id $laptop_screen
+bindsym $mod+F2 exec --no-startup-id $desk_screens
 
 # bindsym $mod+n exec i3-input -F 'rename workspace to "'`i3-msg -t get_workspaces | jq '.[] | select(.visible == true)' | jq .num`': %s"' -P "new name? "
 

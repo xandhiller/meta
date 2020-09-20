@@ -293,7 +293,7 @@ nnoremap <Leader>U vU
 nnoremap <Leader>f zfip
 nnoremap <Leader>e zD
 nnoremap <Leader>E zE
-nnoremap <Leader>F zfip}j
+nnoremap <Leader>F zfip
 nnoremap <Leader>= <C-w>=
 nnoremap <Leader>co :vsp col<CR>:source ~/.scripts/colors.vim<CR>
 " Navigating marks in a sane manner

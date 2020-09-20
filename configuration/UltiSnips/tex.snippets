@@ -38,16 +38,16 @@ endsnippet
 
 context "text()"
 snippet Dm "Display Math" wA
-\[\begin{split}%
+\begin{equation}
 	$1
-\end{split}\]%$0
+\end{equation}
 endsnippet
 
 context "text()"
 snippet dm "Display Math" wA
-\begin{equation}
+\[
 	$1
-\end{equation}$0
+\]$0
 endsnippet
 
 context "text()"
@@ -491,7 +491,7 @@ endsnippet
 
 context "math()"
 snippet SS "Parantheses" wA
-\left\{${1:${VISUAL}}\right\}$0
+\left\\{${1:${VISUAL}}\right\\}$0
 endsnippet
 
 
@@ -751,7 +751,7 @@ if match.group(2) != None:
 	snip.rv=match.group(1)+match.group(2)
 else:
 	snip.rv=match.group(1)
-	`}
+	`$1}$0
 endsnippet
 
 context "math()"
@@ -941,10 +941,6 @@ snippet XX "times" wA
 \times$0
 endsnippet
 
-context "math()"
-snippet pm "plus and minus" wA
-\pm
-endsnippet
 
 context "math()"
 snippet unit "unit vector" wA
@@ -1064,7 +1060,7 @@ endsnippet
 
 context "math()"
 snippet det "determinant" wA
-\text{det}\left( $1 \right)$0
+\det\left( $1 \right)$0
 endsnippet
 
 context "text()"
@@ -1268,4 +1264,9 @@ endsnippet
 context "text()"
 snippet Eq "ref" wA
 Eq~\ref{eq:$1}$0
+endsnippet
+
+context "math()"
+snippet GG "Gamma" wA
+\Gamma
 endsnippet

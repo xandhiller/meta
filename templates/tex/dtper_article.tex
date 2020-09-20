@@ -6,7 +6,7 @@ roundcorner=2pt,%
 %----------------------%
 % FIXME: Dashed lines don't work.
 \global\mdfdefinestyle{dashdefault}{%
-    linecolor=black!10,middlelinewidth=0.8pt,%
+    linecolor=black!0,middlelinewidth=0.8pt,%
 roundcorner=2pt,pstrickssetting={linestyle=dashed,}%
 }
 %----------------------%
@@ -21,7 +21,7 @@ roundcorner=2pt,pstrickssetting={linestyle=dashed,}%
 %----------------------%
 \newcounter{define}
 \newenvironment{define}
-{\begin{mdframed}[style=exampledefault]
+{\begin{mdframed}[style=dashdefault]
     \stepcounter{subsection}
     %\phantomsubsection
 %\addcontentsline{toc}{subsection}{\textit{Definition \thesubsection}}
@@ -29,21 +29,21 @@ roundcorner=2pt,pstrickssetting={linestyle=dashed,}%
 {\end{mdframed}}
 %----------------------%
 \newenvironment{proof}
-{\begin{mdframed}[linecolor=black!50, roundcorner=3pt, backgroundcolor=black!6]
+{\begin{mdframed}[style=dashdefault]
     \stepcounter{subsection}
     %\addcontentsline{toc}{subsection}{\textit{Proof \thesubsection}}
     \textbf{Proof \thesubsection}:}
 {\QED\end{mdframed}}
 %----------------------%
 \newenvironment{theorem}
-{\begin{mdframed}[linecolor=black!50, roundcorner=3pt, backgroundcolor=black!9]
+{\begin{mdframed}[style=dashdefault]
     \stepcounter{subsection}
 %\addcontentsline{toc}{subsection}{\textit{Theorem \thesubsection}}
     \textbf{Theorem \thesubsection}:}
 {\end{mdframed}} 
 %----------------------%
 \newenvironment{example}
-{\begin{mdframed}[linecolor=black!50, roundcorner=3pt, backgroundcolor=black!13]
+{\begin{mdframed}[style=dashdefault]
     \stepcounter{subsection}
     %\addcontentsline{toc}{subsection}{\textit{Example \thesubsection}}
     \textbf{Example \thesubsection}:}
@@ -62,19 +62,19 @@ roundcorner=2pt,pstrickssetting={linestyle=dashed,}%
 {\end{mdframed}}
 %----------------------%
 \newenvironment{define*}
-{\begin{mdframed}[style=exampledefault]\textbf{Definition}: }
+{\begin{mdframed}[style=dashdefault]\textbf{Definition}: }
 {\end{mdframed}}
 %----------------------%
 \newenvironment{proof*}
-{\begin{mdframed}[linecolor=black!50, roundcorner=3pt, backgroundcolor=black!6]\textbf{Proof}: }
+{\begin{mdframed}[linecolor=black!50, roundcorner=3pt]\textbf{Proof}: }
 {\QED\end{mdframed}}
 %----------------------%
 \newenvironment{theorem*}
-{\begin{mdframed}[linecolor=black!50, roundcorner=3pt, backgroundcolor=black!9]\textbf{Theorem}: }
+{\begin{mdframed}[linecolor=black!50, roundcorner=3pt]\textbf{Theorem}: }
 {\end{mdframed}} 
 %----------------------%
 \newenvironment{example*}
-{\begin{mdframed}[linecolor=black!50, roundcorner=3pt, backgroundcolor=black!13]\textbf{Example}: }
+{\begin{mdframed}[linecolor=black!50, roundcorner=3pt]\textbf{Example}: }
 {\end{mdframed}}
 %----------------------%
 \newenvironment{remark*}
@@ -83,35 +83,35 @@ roundcorner=2pt,pstrickssetting={linestyle=dashed,}%
 %-----------------------------------------------------------------------%
 %---------------------- With names in parantheses ----------------------%
 \newenvironment{Theorem}[1]
-{\begin{mdframed}[linecolor=black!50, roundcorner=3pt, backgroundcolor=black!9]
+{\begin{mdframed}[style=dashdefault]
     \stepcounter{subsection}
     %\addcontentsline{toc}{subsection}{\textit{Theorem \thesubsection}}
     \textbf{Theorem \thesubsection}: (\textit{#1})}
 {\end{mdframed}} 
 %-----------------------------------------------------------------------%
 \newenvironment{Assert}[1]
-{\begin{mdframed}[style=exampledefault]
+{\begin{mdframed}[style=dashdefault]
     \stepcounter{subsection}
     %\addcontentsline{toc}{subsection}{\textit{Assert \thesubsection}}
     \textbf{Assertion \thesubsection}: (\textit{#1})}
 {\end{mdframed}}
 %----------------------%
 \newenvironment{Define}[1]
-{\begin{mdframed}[style=exampledefault]
+{\begin{mdframed}[style=dashdefault]
     \stepcounter{subsection}
     %\addcontentsline{toc}{subsection}{\textit{Definition \thesubsection}}
     \textbf{Definition \thesubsection}: (\textit{#1})}
 {\end{mdframed}}
 %----------------------%
 \newenvironment{Proof}[1]
-{\begin{mdframed}[linecolor=black!50, roundcorner=3pt, backgroundcolor=black!6]
+{\begin{mdframed}[style=dashdefault]
     \stepcounter{subsection}
     %\addcontentsline{toc}{subsection}{\textit{Proof \thesubsection}}
     \textbf{Proof \thesubsection}: (\textit{#1})}
 {\QED\end{mdframed}}
 %----------------------%
 \newenvironment{Example}[1]
-{\begin{mdframed}[linecolor=black!50, roundcorner=3pt, backgroundcolor=black!13]
+{\begin{mdframed}[style=dashdefault]
     \stepcounter{subsection}
     %\addcontentsline{toc}{subsection}{\textit{Example \thesubsection}}
     \textbf{Example \thesubsection}: (\textit{#1})}

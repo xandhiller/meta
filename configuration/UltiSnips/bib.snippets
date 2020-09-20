@@ -29,5 +29,16 @@ year     = ${5:enter_int},
 pages    = "${6:start}--${7:end}",
 volume   = ${8:enter_int},
 number   = ${9:enter_int}
-}
+}$0
+endsnippet
+
+snippet book "book reference" 
+@book{${1:ref_name},
+author   = "$2",
+title    = "$3",
+publisher  = "{$4}",
+year     = ${5:enter_int},
+address    = "\{${6:e.g. Sydney, Australia}\}",
+edition   = "${7:e.g. Second}"
+}$0
 endsnippet
