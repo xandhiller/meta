@@ -204,9 +204,6 @@ inoremap <Leader>d <Esc>:call DKtoggle()<CR>a
 
 
 "  SHORTCUTS/MAPPINGS/ABREVIATIONS
-""""""""""""""""""""""""""""""""""""""""" for command mode
-nnoremap <S-Tab> <<
-inoremap <S-Tab> <C-d>
 """"""""""""""""""""""""""""""""""""""""
 " Unmapping rubbish keys
 nnoremap Q      <Nop>
@@ -242,6 +239,18 @@ vnoremap <Right>  <Nop>
 vnoremap <Left>   <Nop>
 vnoremap <Up>     <Nop>
 vnoremap <Down>   <Nop>
+nnoremap <S-Right>  <Nop>
+nnoremap <S-Left>   <Nop>
+nnoremap <S-Up>     <Nop>
+nnoremap <S-Down>   <Nop>
+inoremap <S-Right>  <Nop>
+inoremap <S-Left>   <Nop>
+inoremap <S-Up>     <Nop>
+inoremap <S-Down>   <Nop>
+vnoremap <S-Right>  <Nop>
+vnoremap <S-Left>   <Nop>
+vnoremap <S-Up>     <Nop>
+vnoremap <S-Down>   <Nop>
 " Compile the current document into markdown syntax pdf.
 " nnoremap <Leader>d :w<CR>:silent ! livemd.py %:p %:p<CR>:source $MYVIMRC<CR>
 " Edit init.vim on the fly
