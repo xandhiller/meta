@@ -375,9 +375,14 @@ nnoremap <F8> <Esc>:w<CR><Esc>:! ctags -R<CR><Esc>:UpdateTypesFile<CR>
 inoremap <F8> <Esc>:w<CR><Esc>:! ctags -R<CR><Esc>:UpdateTypesFile<CR>
 vnoremap <F8> <Esc>:w<CR><Esc>:! ctags -R<CR><Esc>:UpdateTypesFile<CR>
 vnoremap <C-g> g<C-g>
-" Find hooks in another way
-nnoremap <M-Right> /<++><CR>
-nnoremap <M-Left> ?<++><CR>
+"For GDB
+nnoremap <M-Right> :Step<CR>
+nnoremap <M-Left> :Over<CR>
+nnoremap <M-Down> :Continue<CR>
+
+nnoremap <M-CR> :Break<CR>
+nnoremap <M-S-CR> :Run<CR>
+nnoremap <M-BS> :Clear<CR>
 
 
 "" FILETYPE SPECIFIC SETTINGS
