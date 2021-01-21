@@ -57,16 +57,16 @@ enum {
 endsnippet
 
 snippet switch "Switch statement" bA
-switch($1) {
+switch ($1) {
 	$2
-}
+}$0
 endsnippet
 
 snippet case "Case statement" bA
-case($1):
+case ($1):
 	$2
 	break;
-$3
+$0
 endsnippet
 
 snippet doc "Docstring" bA
@@ -85,4 +85,24 @@ endsnippet
 
 snippet inc "#include" bA
 #include $0
+endsnippet
+
+snippet and "logical and" wA
+&&$0
+endsnippet
+
+snippet pp "parantheses" wA
+($1)$0
+endsnippet
+
+
+snippet bb "braces" wA
+{$1}$0
+endsnippet
+
+
+snippet {} "braces expand" wA
+{
+	$1
+}$0
 endsnippet
