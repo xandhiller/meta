@@ -21,6 +21,7 @@ alias lsa='la -a'
 alias yt='youtube-dl --add-metadata -ic' # Download video
 alias yta='youtube-dl --add-metadata -xic' # Download audio
 alias tr='tree'
+alias t='tree'
 alias record='ffmpeg -f x11grab -s 1600x900 -i :0.0 ~/Videos/screenRecording.mkv'
 alias mdc='mathdoc'
 alias vlib='vim /usr/share/vim/vim74/doc/'
@@ -45,4 +46,5 @@ alias als='ccat ~/Meta/configuration/aliases.sh'
 alias kr='ccat ~/Meta/configuration/keyRemaps.sh'
 alias dict='dict -d gcide'
 alias thes='dict -d moby-thesaurus'
+
 
