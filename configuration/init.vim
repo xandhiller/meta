@@ -428,7 +428,7 @@ augroup pySettings
     au BufReadPost *.py call EIGHTYtoggle()
     au FileType python set tabstop=4 shiftwidth=4
     " Template
-    au BufNewFile *.py read /home/alex/Meta/templates/code/py.py
+    au BufNewFile *.py read $HOME/Meta/templates/code/py.py
 augroup END
 augroup texSettings
     au!
@@ -455,15 +455,15 @@ augroup shSettings
     au FileType sh nnoremap <Leader>r <Esc>:w<CR><Esc>:! sh % <CR>
     au FileType sh vnoremap <Leader>r <Esc>:w<CR><Esc>:! sh % <CR>
     " Shell template
-    au BufNewFile *.sh read /home/alex/Meta/templates/code/sh.sh
+    au BufNewFile *.sh read $HOME/Meta/templates/code/sh.sh
 augroup END
 " cpp
 augroup cppSettings
     au!
     au FileType cpp call EIGHTYtoggle()
     au FileType cpp set shiftwidth=4
-    au BufNewFile *.cpp read /home/alex/Meta/templates/code/cpp.cpp
-    au BufNewFile *.hpp read /home/alex/Meta/templates/code/hpp.hpp
+    au BufNewFile *.cpp read $HOME/Meta/templates/code/cpp.cpp
+    au BufNewFile *.hpp read $HOME/Meta/templates/code/hpp.hpp
     " Comment
     au FileType cpp inoremap <Leader>/ <Esc>g^i//<Space><Esc>$
     au FileType cpp nnoremap <Leader>/ <Esc>g^i//<Space><Esc>$
@@ -511,7 +511,7 @@ augroup END
 " Cmake
 augroup cmakeFiles
     au!
-    au BufNewFile CMakeLists.txt read /home/alex/Meta/templates/code/CMakeLists.txt
+    au BufNewFile CMakeLists.txt read $HOME/Meta/templates/code/CMakeLists.txt
 augroup END
 " Javascript
 augroup javaScript 

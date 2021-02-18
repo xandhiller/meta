@@ -1,7 +1,6 @@
 #! /bin/sh --
 
 alias vim='nvim'
-alias ls='ls --color=auto --group-directories-first'
 alias grep='grep --color=auto'
 alias ccat='highlight --force --out-format=ansi --quiet'
 alias VISUAL='nvim'
@@ -14,7 +13,7 @@ alias r='ranger'
 alias e='exit'
 alias c='clear'
 alias l='ls -1'
-alias la='ls -1a'
+alias ll='ls -1a'
 alias lsa='la -a'
 
 # CLI Program Shortcuts
