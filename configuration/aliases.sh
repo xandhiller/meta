@@ -46,4 +46,6 @@ alias kr='ccat ~/Meta/configuration/keyRemaps.sh'
 alias dict='dict -d gcide'
 alias thes='dict -d moby-thesaurus'
 
+alias setclip="xclip -selection c"
+alias getclip="xclip -selection c -o"
 
