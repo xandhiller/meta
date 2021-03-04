@@ -48,4 +48,4 @@ alias thes='dict -d moby-thesaurus'
 
 alias setclip="xclip -selection c"
 alias getclip="xclip -selection c -o"
-
+alias zrc="nvim ~/.zshrc"
