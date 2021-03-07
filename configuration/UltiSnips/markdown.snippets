@@ -11,9 +11,9 @@ $0
 \`\`\`
 endsnippet
 
-snippet "([A-Za-z]*)/c" "Make inline code" rA
+snippet "([A-Za-z\ \=\>\<]*) cc" "Make inline code" rA
 \``!p 
-if match.group(1) is not "": 
+if match.group(1) != "": 
 	snip.rv = match.group(1)
 `\` $0
 endsnippet
@@ -34,4 +34,24 @@ if t[2] and t[2][0] not in [',', '.', '?', '-', ' ']:
 else:
 	snip.rv = ''
 `$0
+endsnippet
+
+snippet "([0-9A-Za-z\ \-\']*) def" "definition" rw
+def: (`!p snip.rv=match.group(1)`)$0
+endsnippet
+
+
+snippet "([0-9A-Za-z\ \-\']*) thm" "definition" rw
+thm: (`!p snip.rv=match.group(1)`)$0
+endsnippet
+
+snippet "([0-9A-Za-z\ \-\']*) ex" "definition" rw
+ex: (`!p snip.rv=match.group(1)`)$0
+endsnippet
+
+
+snippet dm "display math" bA
+$$
+	$1
+$$$0
 endsnippet

@@ -22,3 +22,23 @@ Unzipping tar file: `tar xvzf file.tar.gz -C /path/to/somedirectory`
         * `v`: The “v” stands for “verbose.” This option will list all of the files one by one in the archive.
         * `z`: The z option is very important and tells the tar command to uncompress the file (gzip).
         * `f`: This options tells tar that you are going to give it a file name to work with.
+=======
+
+## On vim-markdown
+
+Folding is enabled for headers by default.
+
+The following commands are useful to open and close folds:
+
+`zr`: reduces fold level throughout the buffer
+`zR`: opens all folds
+`zm`: increases fold level throughout the buffer
+`zM`: folds everything all the way
+`za`: open a fold your cursor is on
+`zA`: open a fold your cursor is on recursively
+`zc`: close a fold your cursor is on
+`zC`: close a fold your cursor is on recursively
+Options are available to disable folding or change folding style.
+
+Try `:help fold-expr` and `:help fold-commands` for details.
+

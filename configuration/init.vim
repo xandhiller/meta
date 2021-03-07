@@ -28,7 +28,7 @@ set breakindent
 set updatecount=1
 set updatetime=100
 set shada='50,<1000,s100,:0,n~/nvim/shada
-"set conceallevel=2
+set conceallevel=2
 "set concealcursor=c
 
 " HIGHLIGHTS/COLOUR-SCHEME
@@ -93,6 +93,10 @@ Plugin 'w0rp/ale'
     let g:ale_sign_error = 'x'
     let g:ale_sign_warning = '-'
 Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
+    let g:tex_conceal = ""
+    let g:vim_markdown_math = 1
+    let g:vim_markdown_conceal_code_blocks = 0
 Plugin 'SirVer/ultisnips'
     let g:UltiSnipsEditSplit="vertical"
     let g:UltiSnipsExpandTrigger= '<Tab>'
@@ -115,6 +119,7 @@ Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
 Plugin 'vim-scripts/vim-auto-save'
 Plugin 'kshenoy/vim-signature'
+
 call vundle#end()
 filetype plugin indent on
 syntax on
