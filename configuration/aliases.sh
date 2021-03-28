@@ -2,7 +2,7 @@
 
 alias vim='nvim'
 alias grep='grep --color=auto'
-alias ccat='highlight --force --out-format=ansi --quiet'
+alias ccat='highlight --force --style=$HIGHLIGHT_STYLE --out-format=ansi'
 alias VISUAL='nvim'
 alias EDITOR='nvim'
 #alias ag='sudo apt-get'
@@ -49,3 +49,15 @@ alias thes='dict -d moby-thesaurus'
 alias setclip="xclip -selection c"
 alias getclip="xclip -selection c -o"
 alias zrc="nvim ~/.zshrc"
+alias al="nvim ~/Meta/configuration/aliases.sh"
+alias nfind="find . -name" 
+alias tm="nvim ~/.tmux.conf"
+alias cdd="cd ../"
+alias cddd="cd ../../"
+alias cdddd="cd ../../../"
+alias cddddd="cd ../../../../"
+alias cdddddd="cd ../../../../../"
+alias rg="grep -r"
+alias firm="cd ~/Documents/Software/morse_firmware"
+alias soft="cd ~/Documents/Software"
+alias sys="cd ~/Documents/Software"

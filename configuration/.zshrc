@@ -89,7 +89,8 @@ export CLANG_STATIC_ANALYSIS_PATH=/opt/clang-riscv-10.0.0-2019.12.24
 export PATH=$PATH:$RISCV_PATH/bin:$RISCV_OPENOCD_PATH/bin:$CLANG_STATIC_ANALYSIS_PATH/bin
 
 export ZSH="/home/alex/.oh-my-zsh"
-PROMPT='%{$fg[green]%}%~%{$fg_bold[blue]%}$(git_prompt_info)%{$reset_color%} '
+PROMPT='%{$fg[green]%}%~%{$fg_bold[blue]%} $(git_prompt_info)%{$reset_color%} '
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=10'
 ZSH_THEME_GIT_PROMPT_PREFIX="("
 ZSH_THEME_GIT_PROMPT_SUFFIX=")"
 ZSH_THEME_GIT_PROMPT_DIRTY=" ✗"
@@ -120,3 +121,4 @@ antigen bundle softmoth/zsh-vim-mode
 antigen apply
 KEYTIMEOUT=1
 export VISUAL=vim export EDITOR="$VISUAL"
+export HIGHLIGHT_STYLE=fruit

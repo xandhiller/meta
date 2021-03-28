@@ -539,11 +539,9 @@ set wildignore+=*.doc,*.pdf,*.cbr,*.cbz
 set wildignore+=*.zip,*.tar.gz,=*.tar.bz2,*.rar,*.tar.xz,*.kgb
 set wildignore+=*.swp,.lock,.DS_Store,._*
 
-
+" Graphically move through lines, don't move over whole wrapped lines
 nnoremap j gj
 nnoremap k gk
 
 nnoremap <leader>b <Esc>:vsp references.bib<CR>
 nnoremap <leader><S-b> <Esc>:! ln -s ~/Meta/templates/tex/references.bib .<CR>
-
-
