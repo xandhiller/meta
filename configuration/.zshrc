@@ -119,6 +119,9 @@ antigen bundle softmoth/zsh-vim-mode
 
 # Tell Antigen that you're done.
 antigen apply
+# So that vim mode works correctly on CLI
 KEYTIMEOUT=1
-export VISUAL=vim export EDITOR="$VISUAL"
+export VISUAL=vim 
+export EDITOR="$VISUAL"
 export HIGHLIGHT_STYLE=fruit
+export PATH=$PATH:$HOME/Meta/scripts
