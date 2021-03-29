@@ -122,4 +122,3 @@ antigen apply
 KEYTIMEOUT=1
 export VISUAL=vim export EDITOR="$VISUAL"
 export HIGHLIGHT_STYLE=fruit
-cd $HOME # Bug with simple terminal
