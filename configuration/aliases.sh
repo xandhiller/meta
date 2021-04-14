@@ -32,6 +32,9 @@ alias als='ccat ~/Meta/configuration/aliases.sh'
 alias kr='ccat ~/Meta/configuration/keyRemaps.sh'
 alias dict='dict -d gcide'
 alias thes='dict -d moby-thesaurus'
+# Copying templates
+alias tca='cp -n ~/Meta/templates/tex/article.tex'
+alias tcr='cp -n ~/Meta/templates/tex/report.tex'
 # Misc
 alias setclip="xclip -selection c"
 alias getclip="xclip -selection c -o"
@@ -47,5 +50,7 @@ alias cdddddd="cd ../../../../../"
 alias rg="grep -r"
 alias firm="cd ~/Documents/Software/morse_firmware"
 alias soft="cd ~/Documents/Software"
-alias sys="cd ~/Documents/Software"
+alias sys="cd ~/Documents/Systems"
 alias ref='source $HOME/.zshrc > /dev/null && source $HOME/Meta/configuration/aliases.sh > /dev/null'
+alias an="cd ~/Documents/Analog"
+

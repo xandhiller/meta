@@ -95,7 +95,7 @@ ZSH_THEME_GIT_PROMPT_PREFIX="("
 ZSH_THEME_GIT_PROMPT_SUFFIX=")"
 ZSH_THEME_GIT_PROMPT_DIRTY=" ✗"
 ZSH_THEME_GIT_PROMPT_CLEAN=" ✔"
-ZSH_THEME="simple"
+ZSH_THEME="fletcherm"
 export ANTIGEN_LOG=/home/alex/Meta/configuration/antigen.log
 source /home/alex/Meta/configuration/antigen.zsh
 

@@ -17,7 +17,7 @@ set number
 set relativenumber
 set confirm
 set cmdheight=1
-set autoindent
+"set autoindent
 set linebreak
 set ignorecase
 set smartcase
@@ -28,7 +28,7 @@ set breakindent
 set updatecount=1
 set updatetime=100
 set shada='50,<1000,s100,:0,n~/nvim/shada
-set conceallevel=2
+set conceallevel=0
 "set concealcursor=c
 
 " HIGHLIGHTS/COLOUR-SCHEME
@@ -43,7 +43,7 @@ function! MyHighlights()
     hi Folded               ctermfg=61   ctermbg=none
     hi VertSplit            ctermbg=253  ctermfg=253
     hi SignColumn           ctermbg=255
-    hi StatusLine           ctermbg=0  ctermfg=255
+    hi StatusLine           ctermbg=1  ctermfg=255
     hi StatusLineNC         ctermbg=255  ctermfg=245
     hi vCursor              ctermbg=1
     hi CursorLine           cterm=none   ctermbg=253
@@ -93,10 +93,10 @@ Plugin 'w0rp/ale'
     let g:ale_sign_error = 'x'
     let g:ale_sign_warning = '-'
 Plugin 'godlygeek/tabular'
-Plugin 'plasticboy/vim-markdown'
-    let g:tex_conceal = ""
-    let g:vim_markdown_math = 1
-    let g:vim_markdown_conceal_code_blocks = 0
+"Plugin 'plasticboy/vim-markdown'
+"    let g:tex_conceal = ""
+"    let g:vim_markdown_math = 1
+"    let g:vim_markdown_conceal_code_blocks = 0
 Plugin 'SirVer/ultisnips'
     let g:UltiSnipsEditSplit="vertical"
     let g:UltiSnipsExpandTrigger= '<Tab>'
