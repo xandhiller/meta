@@ -1,30 +1,31 @@
-#! /bin/sh --
+#! /bin/zsh 
 
 
-#whole_screenshot() {
-#
-#}
-#
-#
-#selection_screenshot() {
-#
-#}
-#
-#
-#copy_link() {
-#
-#}
-#
-#
-#copy_image() {
-#
-#}
+whole_screenshot() {
 
+}
+
+
+selection_screenshot() {
+
+}
+
+
+copy_link() {
+
+}
+
+
+copy_image() {
+
+}
+
+echo $options
 while getopts "s:c:" opt
 do
     case "$opt" in
-        s|screenshot) screenshot=$OPTARG;;
-        c|copy) copy=$OPTARG;;
+        s|) screenshot=$OPTARG;;
+        c|) copy=$OPTARG;;
         *) exit 2;;
     esac
 done
