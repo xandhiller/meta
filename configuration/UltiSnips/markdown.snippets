@@ -11,11 +11,11 @@ $0
 \`\`\`
 endsnippet
 
-snippet "([A-Za-z\ \=\>\<]*) cc" "Make inline code" rA
+snippet "([A-Za-z\=\>\<_]*)( )cc" "Make inline code" rA
 \``!p 
 if match.group(1) != "": 
 	snip.rv = match.group(1)
-`\` $0
+`\`$0
 endsnippet
 
 snippet block "Create markdown block" b
@@ -36,16 +36,16 @@ else:
 `$0
 endsnippet
 
-snippet "([0-9A-Za-z\ \-\']*) def" "definition" rw
+snippet "([0-9A-Za-z\ \-\'?,"`_/]*) def" "definition" rw
 def: (`!p snip.rv=match.group(1)`)$0
 endsnippet
 
 
-snippet "([0-9A-Za-z\ \-\']*) thm" "definition" rw
+snippet "([0-9A-Za-z\ \-\'?,"`_]*) thm" "theorem" rw
 thm: (`!p snip.rv=match.group(1)`)$0
 endsnippet
 
-snippet "([0-9A-Za-z\ \-\']*) ex" "definition" rw
+snippet "([0-9A-Za-z\ \-\'?,"`_]*) ex" "example" rw
 ex: (`!p snip.rv=match.group(1)`)$0
 endsnippet
 
@@ -54,4 +54,9 @@ snippet dm "display math" bA
 $$
 	$1
 $$$0
+endsnippet
+
+# TODO: Grab whitespace at front of line to preserve indent.
+snippet "([0-9A-Za-z\ \-\'?,"`_]*) qq" "definition" rwA
+Q: `!p snip.rv=match.group(1)`$0
 endsnippet

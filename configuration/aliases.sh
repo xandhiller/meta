@@ -53,4 +53,5 @@ alias soft="cd ~/Documents/Software"
 alias sys="cd ~/Documents/Systems"
 alias ref='source $HOME/.zshrc > /dev/null && source $HOME/Meta/configuration/aliases.sh > /dev/null'
 alias an="cd ~/Documents/Analog"
-
+alias igor="cd ~/Documents/Analog/igor"
+alias "cd cd"="cd"

@@ -421,7 +421,7 @@ augroup END
 augroup pySettings
     au!
     " Run python file
-    au FileType python nnoremap <Leader>r <Esc>:w<CR>:! python %<CR>
+    au FileType python nnoremap <Leader>r <Esc>:w<CR>:! python3 %<CR>
     au FileType python nnoremap <Leader>R <Esc>:w<CR>:! time python %<CR>
     " Commenting
     au FileType python inoremap <Leader>/ <Esc>g^i#<Space><Esc>$
