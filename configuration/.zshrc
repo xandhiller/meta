@@ -96,7 +96,7 @@ ZSH_THEME_GIT_PROMPT_DIRTY=" ✗"
 ZSH_THEME_GIT_PROMPT_CLEAN=" ✔"
 ZSH_THEME="simple"
 export ANTIGEN_LOG=/home/alex/Meta/configuration/antigen.log
-source /home/alex/Meta/configuration/antigen.zsh
+source $HOME/Meta/configuration/antigen.zsh
 
 # Load the oh-my-zsh's library.
 
@@ -120,3 +120,24 @@ antigen bundle softmoth/zsh-vim-mode
 antigen apply
 KEYTIMEOUT=1
 export VISUAL=vim export EDITOR="$VISUAL"
+
+if [ `hostname` = "nebuchadnezzar" ]
+then
+    PATH="$PATH:/homebrew/anaconda3/bin"
+fi
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/opt/homebrew/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/opt/homebrew/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/opt/homebrew/anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/opt/homebrew/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
