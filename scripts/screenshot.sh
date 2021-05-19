@@ -1,4 +1,4 @@
-#! /bin/sh --
+#! /bin/zsh --
 
 # full screen or selection
 TMP_SAVE="$HOME/tmp/screen_grab.png"
