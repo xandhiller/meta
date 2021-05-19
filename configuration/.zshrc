@@ -89,12 +89,13 @@ export CLANG_STATIC_ANALYSIS_PATH=/opt/clang-riscv-10.0.0-2019.12.24
 export PATH=$PATH:$RISCV_PATH/bin:$RISCV_OPENOCD_PATH/bin:$CLANG_STATIC_ANALYSIS_PATH/bin
 
 export ZSH="/home/alex/.oh-my-zsh"
-PROMPT='%{$fg[green]%}%~%{$fg_bold[blue]%}$(git_prompt_info)%{$reset_color%} '
+PROMPT='%{$fg[green]%}%~%{$fg_bold[blue]%} $(git_prompt_info)%{$reset_color%} '
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=10'
 ZSH_THEME_GIT_PROMPT_PREFIX="("
 ZSH_THEME_GIT_PROMPT_SUFFIX=")"
 ZSH_THEME_GIT_PROMPT_DIRTY=" ✗"
 ZSH_THEME_GIT_PROMPT_CLEAN=" ✔"
-ZSH_THEME="simple"
+ZSH_THEME="fletcherm"
 export ANTIGEN_LOG=/home/alex/Meta/configuration/antigen.log
 source $HOME/Meta/configuration/antigen.zsh
 
@@ -118,7 +119,9 @@ antigen bundle softmoth/zsh-vim-mode
 
 # Tell Antigen that you're done.
 antigen apply
+# So that vim mode works correctly on CLI
 KEYTIMEOUT=1
+<<<<<<< HEAD
 export VISUAL=vim export EDITOR="$VISUAL"
 
 if [ `hostname` = "nebuchadnezzar" ]
@@ -141,3 +144,7 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+export VISUAL=vim 
+export EDITOR="$VISUAL"
+export HIGHLIGHT_STYLE=fruit
+export PATH=$PATH:$HOME/Meta/scripts

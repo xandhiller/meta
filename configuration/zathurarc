@@ -9,8 +9,8 @@ set statusbar-fg "#333333"
 
 set completion-bg "#EEEEEE"
 set completion-fg "#000000"
-set completion-highlight-bg "#8888FF"
-set completion-highlight-fg "#EEEEEE"
+#set completion-highlight-bg "#8888FF"
+#set completion-highlight-fg "#EEEEEE"
 set completion-group-bg "#EEEEEE"
 set completion-group-fg "#2222FF"
 set inputbar-bg "#EEEEEE"
@@ -21,13 +21,14 @@ set scrollbar-bg "#EEEEEE"
 set scrollbar-fg "#2222FF"
 
 
-set highlight-color "#8888FF"
-set highlight-transparency 0.2
+#set highlight-color "#8888FF"
+#set highlight-transparency 0.2
 
 
 set recolor-lightcolor "#FFFFFF"
 set recolor-darkcolor "#000000"
-set recolor "true"
+# set recolor "true"
+
 
 
 set first-page-column 2:1
