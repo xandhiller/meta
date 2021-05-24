@@ -8,8 +8,8 @@ if [ $HOST = 'nebuchadnezzar' ]
 then
     pbpaste > $CLIPBOARD_PROGRAM
 else 
-    getclip > $CLIPBOARD_PROGRAM
+    xclip -selection c -o > $CLIPBOARD_PROGRAM
 fi
 
-chmod +x /tmp/runclip.sh
-/tmp/runclip.sh
+chmod +x $CLIPBOARD_PROGRAM
+$CLIPBOARD_PROGRAM
