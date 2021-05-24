@@ -121,7 +121,6 @@ antigen bundle softmoth/zsh-vim-mode
 antigen apply
 # So that vim mode works correctly on CLI
 KEYTIMEOUT=1
-<<<<<<< HEAD
 export VISUAL=vim export EDITOR="$VISUAL"
 
 if [ `hostname` = "nebuchadnezzar" ]
