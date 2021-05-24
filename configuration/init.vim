@@ -488,6 +488,11 @@ augroup cppSettings
     au FileType cpp nnoremap <Leader>b <Esc>:w<CR><Esc>:! cpprun % -build<CR>
     au FileType cpp vnoremap <Leader>b <Esc>:w<CR><Esc>:! cpprun % -build<CR>
 augroup END
+" Sick of the incorrect syntax in shell
+augroup shell
+    au!
+    autocmd Filetype sh set syntax=zsh
+augroup END
 " Differentiate c and c++ headers.
 augroup headers
     au!
