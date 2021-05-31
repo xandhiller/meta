@@ -1,7 +1,7 @@
 "  APPEARANCE/INPUT 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let mapleader=";"
-colorscheme zellner
+colorscheme default
 set nocompatible
 set clipboard+=unnamedplus
 set signcolumn=yes
@@ -35,36 +35,34 @@ set conceallevel=0
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Turn colorscheme into function so that it can be called to refresh.
 function! MyHighlights()
-    hi Search               ctermfg=0 ctermbg=150 
-    hi Visual               cterm=none ctermfg=none ctermbg=153
-    hi Todo                 cterm=none ctermbg=237 ctermfg=3
-    hi LineNr               ctermfg=252 
-    hi ColorColumn          ctermbg=255
-    hi Folded               ctermfg=61   ctermbg=none
-    hi VertSplit            ctermbg=253  ctermfg=253
-    hi SignColumn           ctermbg=255
-    hi StatusLine           ctermbg=1  ctermfg=255
-    hi StatusLineNC         ctermbg=255  ctermfg=245
-    hi vCursor              ctermbg=1
-    hi CursorLine           cterm=none   ctermbg=253
-    hi CursorLineNr         cterm=bold   ctermfg=240    ctermbg=254
-    hi String               ctermfg=35
-    hi Number               ctermfg=134
-    hi SignatureMarkText    ctermfg=244  ctermbg=254
-    hi Conceal              ctermfg=1    ctermbg=none
-    hi Comment              ctermfg=246
-    hi MatchParen           cterm=bold   ctermfg=168 ctermbg=251
-    hi Identifier           ctermfg=62
-    hi String               ctermfg=30
-    hi Statement            ctermfg=124
-    hi PreProc              ctermfg=98   cterm=none
-    hi Todo                 ctermfg=59   ctermbg=255
-    hi ALEErrorSign         ctermbg=255  ctermfg=red
-    hi ALEWarning           ctermbg=255
-    hi Hook                 ctermbg=189
-    match Hook "<++>" 
-    syn match   myTodo      contained   "\<\(TODO\|FIXME\|OPTIMISE\)"
-    hi def link myTodo Todo
+"   hi Search               ctermfg=0 ctermbg=150 
+"   hi Visual               cterm=none ctermfg=none ctermbg=153
+"   hi Todo                 cterm=none ctermbg=237 ctermfg=3
+"   hi LineNr               ctermfg=252 
+"   hi ColorColumn          ctermbg=255
+"   hi Folded               ctermfg=61   ctermbg=none
+"   hi VertSplit            ctermbg=253  ctermfg=253
+"   hi SignColumn           ctermbg=255
+"   hi StatusLine           ctermbg=1  ctermfg=255
+"   hi StatusLineNC         ctermbg=255  ctermfg=245
+"   hi vCursor              ctermbg=1
+"   hi CursorLine           cterm=none   ctermbg=253
+"   hi CursorLineNr         cterm=bold   ctermfg=240    ctermbg=254
+"   hi String               ctermfg=35
+"   hi Number               ctermfg=134
+"   hi SignatureMarkText    ctermfg=244  ctermbg=254
+"   hi Conceal              ctermfg=1    ctermbg=none
+"   hi Comment              ctermfg=246
+"   hi MatchParen           cterm=bold   ctermfg=168 ctermbg=251
+"   hi Identifier           ctermfg=62
+"   hi String               ctermfg=30
+"   hi Statement            ctermfg=124
+"   hi PreProc              ctermfg=98   cterm=none
+"   hi Todo                 ctermfg=59   ctermbg=255
+"   hi ALEErrorSign         ctermbg=255  ctermfg=red
+"   hi ALEWarning           ctermbg=255
+"   hi Hook                 ctermbg=189
+"   hi def link myTodo Todo
 endfunction 
 
 
@@ -114,7 +112,7 @@ Plugin 'lervag/vimtex'
     "let g:tex_fast = 'M'
     let g:tex_conceal=''
 Plugin 'scrooloose/nerdtree'      
-    map <M-Space> :NERDTreeRefreshRoot<CR>:NERDTreeToggle<CR><C-w>=
+    map <M-Space> :NERDTreeRefreshRoot<CR>:NERDTreeToggle<CR>
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
 Plugin 'vim-scripts/vim-auto-save'
@@ -345,10 +343,9 @@ nnoremap <silent> <leader>nb :set relativenumber!<CR>
 " Terminal stuff in nvim
 nnoremap <C-t> :split<cr><c-w><c-j>:terminal<cr>
 "
-nnoremap <S-CR> k
-nnoremap <S-Space> h
 
 
+" 2021-05-30: Replace hooks with smarter use of marks? 
 " HOOKS
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "         ([)
@@ -384,7 +381,6 @@ vnoremap <C-g> g<C-g>
 nnoremap <M-Right> :Step<CR>
 nnoremap <M-Left> :Over<CR>
 nnoremap <M-Down> :Continue<CR>
-
 nnoremap <M-CR> :Break<CR>
 nnoremap <M-S-CR> :Run<CR>
 nnoremap <M-BS> :Clear<CR>

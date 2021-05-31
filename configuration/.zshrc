@@ -90,12 +90,12 @@ export PATH=$PATH:$RISCV_PATH/bin:$RISCV_OPENOCD_PATH/bin:$CLANG_STATIC_ANALYSIS
 
 export ZSH="/home/alex/.oh-my-zsh"
 PROMPT='%{$fg[green]%}%~%{$fg_bold[blue]%} $(git_prompt_info)%{$reset_color%} '
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=10'
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=8'
 ZSH_THEME_GIT_PROMPT_PREFIX="("
 ZSH_THEME_GIT_PROMPT_SUFFIX=")"
 ZSH_THEME_GIT_PROMPT_DIRTY=" ✗"
 ZSH_THEME_GIT_PROMPT_CLEAN=" ✔"
-ZSH_THEME="fletcherm"
+ZSH_THEME="default"
 export ANTIGEN_LOG=/home/alex/Meta/configuration/antigen.log
 source $HOME/Meta/configuration/antigen.zsh
 
@@ -115,7 +115,7 @@ antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle softmoth/zsh-vim-mode
 
 # Load the theme.
-# antigen theme robbyrussell
+#antigen theme robbyrussell
 
 # Tell Antigen that you're done.
 antigen apply
@@ -146,4 +146,4 @@ unset __conda_setup
 export VISUAL=vim 
 export EDITOR="$VISUAL"
 export HIGHLIGHT_STYLE=fruit
-export PATH=$PATH:$HOME/Meta/scripts
+export PATH=$PATH:$HOME/Meta/scripts:$HOME/.local/bin
