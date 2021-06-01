@@ -19,7 +19,6 @@ alias record='ffmpeg -f x11grab -s 1600x900 -i :0.0 ~/Videos/screenRecording.mkv
 alias mdc='mathdoc'
 alias vlib='vim /usr/share/vim/vim74/doc/'
 alias scs='scrot -s' # Take selection screenshot
-#alias txb='cd ~/Documents/Textbooks'
 # Config Files
 alias brc='vim ~/.bashrc'
 alias vrc='nvim ~/.config/nvim/init.vim'
@@ -55,3 +54,5 @@ alias ref='source $HOME/.zshrc > /dev/null && source $HOME/Meta/configuration/al
 alias an="cd ~/Documents/Analog"
 alias igor="cd ~/Documents/Analog/igor"
 alias "cd cd"="cd"
+alias edwm="nvim ~/Meta/desktop/dwm/config.h"
+alias est="nvim ~/Meta/desktop/st/config.h"

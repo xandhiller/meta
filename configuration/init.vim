@@ -4,7 +4,7 @@ let mapleader=";"
 colorscheme default
 set nocompatible
 set clipboard+=unnamedplus
-set signcolumn=yes
+"set signcolumn=yes
 set noshowmatch
 set wrap
 set tabstop=4
@@ -14,7 +14,7 @@ set expandtab
 set splitright
 set splitbelow
 set number
-set relativenumber
+"set relativenumber
 set confirm
 set cmdheight=1
 "set autoindent
@@ -35,34 +35,29 @@ set conceallevel=0
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Turn colorscheme into function so that it can be called to refresh.
 function! MyHighlights()
-"   hi Search               ctermfg=0 ctermbg=150 
-"   hi Visual               cterm=none ctermfg=none ctermbg=153
-"   hi Todo                 cterm=none ctermbg=237 ctermfg=3
-"   hi LineNr               ctermfg=252 
-"   hi ColorColumn          ctermbg=255
-"   hi Folded               ctermfg=61   ctermbg=none
-"   hi VertSplit            ctermbg=253  ctermfg=253
-"   hi SignColumn           ctermbg=255
-"   hi StatusLine           ctermbg=1  ctermfg=255
-"   hi StatusLineNC         ctermbg=255  ctermfg=245
-"   hi vCursor              ctermbg=1
-"   hi CursorLine           cterm=none   ctermbg=253
-"   hi CursorLineNr         cterm=bold   ctermfg=240    ctermbg=254
-"   hi String               ctermfg=35
-"   hi Number               ctermfg=134
-"   hi SignatureMarkText    ctermfg=244  ctermbg=254
-"   hi Conceal              ctermfg=1    ctermbg=none
-"   hi Comment              ctermfg=246
-"   hi MatchParen           cterm=bold   ctermfg=168 ctermbg=251
-"   hi Identifier           ctermfg=62
-"   hi String               ctermfg=30
-"   hi Statement            ctermfg=124
-"   hi PreProc              ctermfg=98   cterm=none
-"   hi Todo                 ctermfg=59   ctermbg=255
 "   hi ALEErrorSign         ctermbg=255  ctermfg=red
 "   hi ALEWarning           ctermbg=255
-"   hi Hook                 ctermbg=189
-"   hi def link myTodo Todo
+"   hi ColorColumn          ctermbg=255
+    hi Comment              ctermfg=242
+"   hi Conceal              ctermfg=1    ctermbg=none
+   hi CursorLine            cterm=none   ctermbg=235
+    hi CursorLineNr         cterm=bold   ctermfg=255    ctermbg=0
+"   hi Folded               ctermfg=61   ctermbg=none
+"   hi Identifier           ctermfg=62
+    hi LineNr               cterm=none ctermfg=245 
+"   hi MatchParen           cterm=bold   ctermfg=168 ctermbg=251
+"   hi Number               ctermfg=134
+"   hi PreProc              ctermfg=98   cterm=none
+    hi Search               ctermfg=0 ctermbg=8
+"   hi SignColumn           ctermbg=0
+"   hi SignatureMarkText    ctermfg=244  ctermbg=254
+"   hi Statement            ctermfg=124
+    hi StatusLine           ctermbg=0  ctermfg=15
+    hi StatusLineNC         ctermbg=15  ctermfg=0
+"   hi String               ctermfg=35
+    hi VertSplit            ctermbg=0  ctermfg=0
+    hi Visual               cterm=none ctermfg=none ctermbg=236
+"   hi vCursor              ctermbg=1
 endfunction 
 
 
