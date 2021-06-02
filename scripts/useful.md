@@ -1,17 +1,31 @@
-`nmcli c show --active`
+# Useful Shell commands
 
-`sed -i 's/old-text/new-text/g' input.txt`
+----
+
+## Some `sed` commands
+
+`sed -i 's/OLD_TEXT/NEW_TEXT/g' input.txt`
 
 `sed -i '1iI am a new line at the top of the file' file.txt`
+
+----
+
+`nmcli c show --active`
+
+----
 
 Rebooting the wifi: 
 `nmcli networking off`
 `nmcli networking on`
 
+----
+
 Search through pdfs in a directory.
 ```
 for f in pdf_directory; do echo $f; pdftotext $f - | grep -i "search_term"; done
 ```
+
+----
 
 Zipping file(s): `zip -r filename.zip folder1 folder2`
 
@@ -50,9 +64,13 @@ Try `:help fold-expr` and `:help fold-commands` for details.
 ## Regarding `ssh` on the command-line:
 
 If you want to pull via `ssh`, the format for any `github` repos is:
-
-```sh
+```
 git@github.com:user/repo.git
 ```
- 
 as opposed to some HTTPS link: `https://github.com/user/repo.git`.
+
+----
+
+## Cut 3.123 seconds from `input.mp4` and then let it run for 10 seconds, saving it to `out.mp4`
+
+ffmpeg -ss 00:00:03.123 -i input.mp4 -t 10 -c:v libx264 -c:a copy out.mp4

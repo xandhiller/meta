@@ -15,6 +15,7 @@ alias yt='youtube-dl --add-metadata -ic' # Download video
 alias yta='youtube-dl --add-metadata -xic' # Download audio
 alias tr='tree'
 alias t='tree'
+alias tl='tree -L'
 alias record='ffmpeg -f x11grab -s 1600x900 -i :0.0 ~/Videos/screenRecording.mkv'
 alias mdc='mathdoc'
 alias vlib='vim /usr/share/vim/vim74/doc/'

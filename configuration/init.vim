@@ -85,6 +85,7 @@ Plugin 'junegunn/goyo.vim'
 Plugin 'w0rp/ale'
     let g:ale_sign_error = 'x'
     let g:ale_sign_warning = '-'
+    let g:ale_enabled=0
 Plugin 'godlygeek/tabular'
 "Plugin 'plasticboy/vim-markdown'
 "    let g:tex_conceal = ""
@@ -394,7 +395,7 @@ augroup END
 " .c
 augroup cSettings
     au!
-    au FileType c call EIGHTYtoggle()
+    "au FileType c call EIGHTYtoggle()
     au FileType c set shiftwidth=4
     au BufNewFile *.c read $HOME/Meta/templates/code/c.c
     au BufNewFile *.h read $HOME/Meta/templates/code/h.h
@@ -421,7 +422,7 @@ augroup pySettings
     au FileType python inoremap <Leader>? <Esc>g^xx
     au FileType python nnoremap <Leader>? <Esc>g^xx
     au FileType python vnoremap <Leader>? <Esc>g^xx
-    au BufReadPost *.py call EIGHTYtoggle()
+    " au BufReadPost *.py call EIGHTYtoggle()
     au FileType python set tabstop=4 shiftwidth=4
     " Template
     au BufNewFile *.py read $HOME/Meta/templates/code/py.py
@@ -456,7 +457,7 @@ augroup END
 " cpp
 augroup cppSettings
     au!
-    au FileType cpp call EIGHTYtoggle()
+    " au FileType cpp call EIGHTYtoggle()
     au FileType cpp set shiftwidth=4
     au BufNewFile *.cpp read $HOME/Meta/templates/code/cpp.cpp
     au BufNewFile *.hpp read $HOME/Meta/templates/code/hpp.hpp
