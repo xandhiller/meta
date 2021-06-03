@@ -74,3 +74,16 @@ as opposed to some HTTPS link: `https://github.com/user/repo.git`.
 ## Cut 3.123 seconds from `input.mp4` and then let it run for 10 seconds, saving it to `out.mp4`
 
 ffmpeg -ss 00:00:03.123 -i input.mp4 -t 10 -c:v libx264 -c:a copy out.mp4
+
+----
+
+## Capturing keysyms
+
+Program to use is `xev` to capture keysyms.
+
+Process of interpretation of a keysym is:
+
+              [Keyboard]        -> (scancode)
+(scancode) -> [Linux Kernel]    -> (keycode)
+(keycode)  -> [Keyboard Layout] -> (keysym)   # based on modifier keys (ctrl, alt, super, etc.)
+(keysym)   -> [ACTION]

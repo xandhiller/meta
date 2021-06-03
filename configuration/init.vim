@@ -384,6 +384,9 @@ nnoremap <M-BS> :Clear<CR>
 
 "" FILETYPE SPECIFIC SETTINGS
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+augroup useful_md_Settings
+    au BufReadPost useful.md normal GGzz
+augroup END
 augroup markdownSettings
     au!
     au FileType markdown set tabstop=4 shiftwidth=4
