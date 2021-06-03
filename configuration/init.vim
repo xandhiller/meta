@@ -382,6 +382,10 @@ nnoremap <M-S-CR> :Run<CR>
 nnoremap <M-BS> :Clear<CR>
 
 
+" Tabularise speed up
+vnoremap <Leader>t :Tabularize /
+
+
 "" FILETYPE SPECIFIC SETTINGS
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 augroup useful_md_Settings
@@ -451,9 +455,9 @@ augroup shSettings
     au FileType sh nnoremap <Leader>? <Esc>g^xx
     au FileType sh vnoremap <Leader>? <Esc>g^xx
     " Run sh
-    au FileType sh inoremap <Leader>r <Esc>:w<CR><Esc>:! sh % <CR>
-    au FileType sh nnoremap <Leader>r <Esc>:w<CR><Esc>:! sh % <CR>
-    au FileType sh vnoremap <Leader>r <Esc>:w<CR><Esc>:! sh % <CR>
+    au FileType sh inoremap <Leader>r <Esc>:w<CR><Esc>:! /usr/bin/zsh % <CR>
+    au FileType sh nnoremap <Leader>r <Esc>:w<CR><Esc>:! /usr/bin/zsh % <CR>
+    au FileType sh vnoremap <Leader>r <Esc>:w<CR><Esc>:! /usr/bin/zsh % <CR>
     " Shell template
     au BufNewFile *.sh read $HOME/Meta/templates/code/sh.sh
 augroup END
