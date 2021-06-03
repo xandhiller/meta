@@ -23,13 +23,10 @@ alias scs='scrot -s' # Take selection screenshot
 # Config Files
 alias brc='vim ~/.bashrc'
 alias vrc='nvim ~/.config/nvim/init.vim'
-alias ebsct='vim ~/GitHub/configuration/shortcuts.sh'  # Bash Shortcuts
-alias ekr='vim ~/GitHub/configuration/keyRemaps.sh'
 alias zrc='vim ~/.config/zathura/zathurarc'
 alias scr='cd ~/Meta/scripts'
 # Viewing shorcuts in terminal
 alias als='ccat ~/Meta/configuration/aliases.sh' 
-alias kr='ccat ~/Meta/configuration/keyRemaps.sh'
 alias dict='dict -d gcide'
 alias thes='dict -d moby-thesaurus'
 # Copying templates
@@ -39,6 +36,7 @@ alias tcr='cp -n ~/Meta/templates/tex/report.tex'
 alias setclip="xclip -selection c"
 alias getclip="xclip -selection c -o"
 alias zrc="nvim ~/.zshrc"
+alias xrc="nvim ~/.xinitrc"
 alias al="nvim ~/Meta/configuration/aliases.sh"
 alias nfind="find . -name" 
 alias tm="nvim ~/.tmux.conf"
@@ -55,6 +53,8 @@ alias ref='source $HOME/.zshrc > /dev/null && source $HOME/Meta/configuration/al
 alias an="cd ~/Documents/Analog"
 alias igor="cd ~/Documents/Analog/igor"
 alias "cd cd"="cd"
-alias edwm="nvim ~/Meta/desktop/dwm/config.h"
+alias edwm="nvim ~/Meta/desktop/dwm/config.h ~/Meta/desktop/dwm/dwm.c"
 alias est="nvim ~/Meta/desktop/st/config.h"
 alias useful="nvim ~/Meta/scripts/useful.md"
+alias mdwm="cd ~/Meta/desktop/dwm/; sudo make install && cd -"
+alias mst="cd ~/Meta/desktop/st/; sudo make install &&  cd -"
