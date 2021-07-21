@@ -147,3 +147,4 @@ export VISUAL=vim
 export EDITOR="$VISUAL"
 export HIGHLIGHT_STYLE=fruit
 export PATH=$PATH:$HOME/Meta/scripts:$HOME/.local/bin
+export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/opt/homebrew/lib/pkgconfig/:/opt/homebrew/share/pkgconfig/

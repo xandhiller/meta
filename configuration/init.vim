@@ -82,10 +82,9 @@ Plugin 'junegunn/goyo.vim'
     endfunction
     autocmd! User GoyoEnter nested call <SID>goyo_enter()
     autocmd! User GoyoLeave nested call <SID>goyo_leave()
-Plugin 'w0rp/ale'
-    let g:ale_sign_error = 'x'
-    let g:ale_sign_warning = '-'
-    let g:ale_enabled=0
+"Plugin 'w0rp/ale'
+    "let g:ale_sign_error = 'x'
+    "let g:ale_sign_warning = '-'
 Plugin 'godlygeek/tabular'
 "Plugin 'plasticboy/vim-markdown'
 "    let g:tex_conceal = ""
