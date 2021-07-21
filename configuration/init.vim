@@ -52,8 +52,8 @@ function! MyHighlights()
 "   hi SignColumn           ctermbg=0
 "   hi SignatureMarkText    ctermfg=244  ctermbg=254
 "   hi Statement            ctermfg=124
-    hi StatusLine           ctermbg=0  ctermfg=15
-    hi StatusLineNC         ctermbg=15  ctermfg=0
+    hi StatusLine           ctermbg=0  ctermfg=8
+    hi StatusLineNC         ctermbg=8  ctermfg=0
 "   hi String               ctermfg=35
     hi VertSplit            ctermbg=0  ctermfg=0
     hi Visual               cterm=none ctermfg=none ctermbg=236
