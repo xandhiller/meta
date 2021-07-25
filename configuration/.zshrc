@@ -90,12 +90,12 @@ export PATH=$PATH:$RISCV_PATH/bin:$RISCV_OPENOCD_PATH/bin:$CLANG_STATIC_ANALYSIS
 
 export ZSH="/home/alex/.oh-my-zsh"
 PROMPT='%{$fg[green]%}%~%{$fg_bold[blue]%} $(git_prompt_info)%{$reset_color%} '
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=8'
 ZSH_THEME_GIT_PROMPT_PREFIX="("
 ZSH_THEME_GIT_PROMPT_SUFFIX=")"
 ZSH_THEME_GIT_PROMPT_DIRTY=" ✗"
 ZSH_THEME_GIT_PROMPT_CLEAN=" ✔"
 ZSH_THEME="default"
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#303030'
 export ANTIGEN_LOG=/home/alex/Meta/configuration/antigen.log
 source $HOME/Meta/configuration/antigen.zsh
 
@@ -146,5 +146,6 @@ unset __conda_setup
 export VISUAL=vim 
 export EDITOR="$VISUAL"
 export HIGHLIGHT_STYLE=fruit
+
 export PATH=$PATH:$HOME/Meta/scripts:$HOME/.local/bin
 export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/opt/homebrew/lib/pkgconfig/:/opt/homebrew/share/pkgconfig/
