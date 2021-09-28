@@ -279,8 +279,8 @@ vnoremap <C-p> "+p
 " Make saving quicker
 nnoremap SS <Esc>:w<CR>
 " Make moving around lines more intuitive
-nnoremap H 0
-vnoremap H 0
+nnoremap H g^
+vnoremap H g^
 nnoremap L $
 vnoremap L $
 nnoremap <M-k> 10k

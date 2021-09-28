@@ -87,3 +87,13 @@ Process of interpretation of a keysym is:
 (scancode) -> [Linux Kernel]    -> (keycode)
 (keycode)  -> [Keyboard Layout] -> (keysym)   # based on modifier keys (ctrl, alt, super, etc.)
 (keysym)   -> [ACTION]
+
+---
+
+## Using openvpn3
+
+```sh
+
+openvpn3 config-import --config YOUR_CLIENT_FILE.OVPN
+openvpn3 session-start --config YOUR_CLIENT_FILE.OVPN
+```
