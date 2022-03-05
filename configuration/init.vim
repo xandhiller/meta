@@ -87,6 +87,8 @@ Plugin 'w0rp/ale'
     let g:ale_sign_warning = '-'
     let g:ale_enabled=0
 Plugin 'godlygeek/tabular'
+" Tabularise speed up
+vnoremap <Leader>t :Tabularize /
 "Plugin 'plasticboy/vim-markdown'
 "    let g:tex_conceal = ""
 "    let g:vim_markdown_math = 1
@@ -528,6 +530,16 @@ augroup javaScript
     au FileType javascript nnoremap <leader>r <esc>:! nodejs %<CR>
     au FileType javascript vnoremap <leader>r <esc>:! nodejs %<CR>
     au FileType javascript inoremap <leader>r <esc>:! nodejs %<CR>
+augroup END
+
+augroup matlab
+    au!
+    au FileType matlab nnoremap <leader>r <esc>:w<CR><esc>:! octave % 2> /dev/null<CR>
+    au FileType matlab vnoremap <leader>r <esc>:w<CR><esc>:! octave % 2> /dev/null<CR>
+    au FileType matlab inoremap <leader>r <esc>:w<CR><esc>:! octave % 2> /dev/null<CR>
+    au FileType matlab nnoremap <leader>R <esc>:w<CR><esc>:! octave % <CR>
+    au FileType matlab vnoremap <leader>R <esc>:w<CR><esc>:! octave % <CR>
+    au FileType matlab inoremap <leader>R <esc>:w<CR><esc>:! octave % <CR>
 augroup END
 
 " IGNORE FILES VIM DOESN'T USE
