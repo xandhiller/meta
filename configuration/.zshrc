@@ -147,7 +147,6 @@ unset __conda_setup
 export VISUAL=vim 
 export EDITOR="$VISUAL"
 export HIGHLIGHT_STYLE=fruit
-<<<<<<< HEAD
 export PATH=$PATH:$HOME/Meta/scripts:$HOME/.local/bin:/usr/local/MATLAB/R2019a/bin:/usr/local/Wolfram/Mathematica/13.0/Executables
 export _JAVA_AWT_WM_NONREPARENTING=1
 export PYTHONPATH=/home/alex/Documents/Analog/morseinstruments:/home/alex/Documents/Analog/tuna:/home/alex/Documents/Analog/igor
