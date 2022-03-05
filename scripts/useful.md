@@ -97,3 +97,27 @@ Process of interpretation of a keysym is:
 openvpn3 config-import --config YOUR_CLIENT_FILE.OVPN
 openvpn3 session-start --config YOUR_CLIENT_FILE.OVPN
 ```
+
+# Connect to the wifi from cli
+
+Get the status of networking settings
+```
+nmcli
+```
+
+Get the wifi networks around you
+```
+nmcli dev wifi list
+```
+
+Connect to a network using the SSID from the above command
+```
+sudo nmcli dev wifi connect THE_SSID_HERE
+```
+
+Find the files involved in an apt install:
+```
+dpkg -L package_name_here
+```
+
+`zathura` stores bookmarks in `~/.local/share/zathura/bookmarks`. 
