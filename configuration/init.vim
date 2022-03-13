@@ -254,7 +254,7 @@ vnoremap <S-Down>   <Nop>
 " Compile the current document into markdown syntax pdf.
 " nnoremap <Leader>d :w<CR>:silent ! livemd.py %:p %:p<CR>:source $MYVIMRC<CR>
 " Edit init.vim on the fly
-nnoremap <Leader>vv :vsp $MYVIMRC<CR>
+nnoremap <Leader>vv <ESC>:vsp $MYVIMRC<CR>
 " Moving around windows
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
@@ -266,9 +266,9 @@ nnoremap <C-Down>  3<C-w>+
 nnoremap <C-Up>    3<C-w>-
 nnoremap <C-Right> 3<C-w>>
 " Refresh vimrc
-inoremap <F5>   <Esc>:source<Space>$MYVIMRC<CR>:echom "init.vim refreshed"<CR>i
-nnoremap <F5>   <Esc>:source<Space>$MYVIMRC<CR>:echom "init.vim refreshed"<CR>
-vnoremap <F5>   <Esc>:source<Space>$MYVIMRC<CR>:echom "init.vim refreshed"<CR>
+inoremap <F5>   <esc>:e<CR><Esc>:source $MYVIMRC<CR>:echom "init.vim refreshed"<CR>i
+nnoremap <F5>   <esc>:e<CR><Esc>:source<Space>$MYVIMRC<CR>:echom "init.vim refreshed"<CR>
+vnoremap <F5>   <esc>:e<CR><Esc>:source<Space>$MYVIMRC<CR>:echom "init.vim refreshed"<CR>
 " Copy and paste to the clipboard
 set clipboard=unnamedplus
 inoremap <C-y> <Nop>

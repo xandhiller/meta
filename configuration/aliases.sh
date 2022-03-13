@@ -23,7 +23,7 @@ alias scs='scrot -s' # Take selection screenshot
 # Config Files
 alias brc='vim ~/.bashrc'
 alias vrc='nvim ~/.config/nvim/init.vim'
-alias zrc='vim ~/.config/zathura/zathurarc'
+alias zarc='vim ~/.config/zathura/zathurarc'
 alias scr='cd ~/Meta/scripts'
 # Viewing shorcuts in terminal
 alias als='ccat ~/Meta/configuration/aliases.sh' 
@@ -58,3 +58,19 @@ alias est="nvim ~/Meta/desktop/st/config.h"
 alias useful="nvim ~/Meta/scripts/useful.md"
 alias mdwm="cd ~/Meta/desktop/dwm/; sudo make install && cd -"
 alias mst="cd ~/Meta/desktop/st/; sudo make install &&  cd -"
+alias eipy="vim ~/Meta/configuration/ipython_config.py"
+alias ipy="ipython3"
+alias pc="ping 8.8.8.8"  # ping check
+sv () {
+    name=$(echo $1 | sed -e 's/\./ /g' | awk -e '{ print $1 }')
+    iverilog -o $name.vvp -g2005-sv $@
+}
+svr () {
+    name=$(echo $1 | sed -e 's/\./ /g' | awk -e '{ print $1 }')
+    iverilog -o $name.vvp -g2005-sv $@; 
+    vvp $name.vvp;
+}
+svw () {
+    name=$(echo $1 | sed -e 's/\./ /g' | awk -e '{ print $1 }')
+    iverilog -o $name.vvp -g2005-sv $@; vvp $name.vvp; gtkwave $name.vcd &
+}

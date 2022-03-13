@@ -1,5 +1,5 @@
 set page-padding 1
-set default-bg "#000000"
+#set default-bg "#EEEEEE"
 
 
 set statusbar-basename false
@@ -16,18 +16,18 @@ set completion-group-bg "#000000"
 set inputbar-fg "#EEEEEE"
 set inputbar-bg "#000000"
 set default-fg "#EEEEEE"
-set default-bg "#000000"
+set default-bg "#EEEEEE"
 set scrollbar-fg "#EEEEEE"
 set scrollbar-bg "#2222FF"
 
 
-#set highlight-color "#8888FF"
+set highlight-color "#8888FF"
 #set highlight-transparency 0.2
 
 
 set recolor-darkcolor "#FFFFFF"
 set recolor-lightcolor "#000000"
-set recolor "true"
+set recolor "false"
 
 
 
