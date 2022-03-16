@@ -1,0 +1,8 @@
+#! /bin/sh --
+
+if [  "$1" = "-r" ]
+then
+    date "+%Y_%m_%d__%H_%M"
+else
+    date "+%Y_%m_%d"
+fi
