@@ -58,3 +58,23 @@ alias est="nvim ~/Meta/desktop/st/config.h"
 alias useful="nvim ~/Meta/scripts/useful.md"
 alias mdwm="cd ~/Meta/desktop/dwm/; sudo make install && cd -"
 alias mst="cd ~/Meta/desktop/st/; sudo make install &&  cd -"
+alias icat='kitty icat --align=left'
+#alias icat='kitty icat --align=left --place 60x60 --scale-up'
+alias isvg='rsvg-convert | icat'
+
+
+get_pos() {
+    if [ -t 0 ] && [ -t 1 ]; then
+      old_settings=$(stty -g) || exit
+      stty -icanon -echo min 0 time 3 || exit
+      printf '\033[6n'
+      pos=$(dd count=1 2> /dev/null)
+      pos=${pos%R*}
+      pos=${pos##*\[}
+      x=${pos##*;} y=${pos%%;*}
+      stty "$old_settings"
+    fi
+    return $x,$y
+}
+
+echo $x $y

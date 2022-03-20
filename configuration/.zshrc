@@ -90,12 +90,12 @@ export PATH=$PATH:$RISCV_PATH/bin:$RISCV_OPENOCD_PATH/bin:$CLANG_STATIC_ANALYSIS
 
 export ZSH="/home/alex/.oh-my-zsh"
 PROMPT='%{$fg[green]%}%~%{$fg_bold[blue]%} $(git_prompt_info)%{$reset_color%} '
+#ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#303030'
 ZSH_THEME_GIT_PROMPT_PREFIX="("
 ZSH_THEME_GIT_PROMPT_SUFFIX=")"
 ZSH_THEME_GIT_PROMPT_DIRTY=" ✗"
 ZSH_THEME_GIT_PROMPT_CLEAN=" ✔"
 ZSH_THEME="default"
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#303030'
 export ANTIGEN_LOG=/home/alex/Meta/configuration/antigen.log
 source $HOME/Meta/configuration/antigen.zsh
 
@@ -110,7 +110,7 @@ antigen bundle git
 #antigen bundle command-not-found
 
 # Syntax highlighting bundle.
-antigen bundle zsh-users/zsh-autosuggestions
+# antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle softmoth/zsh-vim-mode
 
@@ -128,11 +128,11 @@ then
     PATH="$PATH:/homebrew/anaconda3/bin"
 fi
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
+        ## >>> conda initialize >>>
+        ## !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/opt/homebrew/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
+   eval "$__conda_setup"
 else
     if [ -f "/opt/homebrew/anaconda3/etc/profile.d/conda.sh" ]; then
         . "/opt/homebrew/anaconda3/etc/profile.d/conda.sh"
@@ -141,7 +141,7 @@ else
     fi
 fi
 unset __conda_setup
-# <<< conda initialize <<<
+        ## <<< conda initialize <<<
 
 export VISUAL=vim 
 export EDITOR="$VISUAL"
@@ -149,3 +149,8 @@ export HIGHLIGHT_STYLE=fruit
 
 export PATH=$PATH:$HOME/Meta/scripts:$HOME/.local/bin
 export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/opt/homebrew/lib/pkgconfig/:/opt/homebrew/share/pkgconfig/
+source ~/Work/.work_zshrc
+export EDITOR='nvim'
+export PYTHONPATH=$HOME/Work/tuna:$HOME/Work/morseinstruments
+export AGDA_DIR=$HOME/.agda
+alias syd5="ssh -X alex@syd5.morsemicro.com"

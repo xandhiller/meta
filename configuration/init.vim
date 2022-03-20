@@ -27,9 +27,8 @@ set nohlsearch
 set breakindent
 set updatecount=1
 set updatetime=100
-set shada='50,<1000,s100,:0,n~/nvim/shada
+"set shada='50,<1000,s100,:0,n~/nvim/shada
 set conceallevel=0
-"set concealcursor=c
 
 " HIGHLIGHTS/COLOUR-SCHEME
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -68,6 +67,9 @@ filetype off
 call vundle#begin()
 "Plugin 'ycm-core/YouCompleteMe'
 Plugin 'VundleVim/Vundle.vim'     
+Plugin 'sotte/presenting.vim'
+" Plugin 'tybenz/vimdeck'
+Plugin 'plasticboy/vim-markdown'
     " For toggling to switch between hard-wrap and off.
 Plugin 'junegunn/goyo.vim'
     nnoremap <C-c> :Goyo<CR>:<CR>:<Esc>
@@ -101,7 +103,7 @@ Plugin 'SirVer/ultisnips'
     vnoremap <C-u> <Esc>:UltiSnipsEdit<CR>
 Plugin 'lervag/vimtex'
     let g:tex_flavor='latex'
-    let g:vimtex_view_method='zathura'
+    " let g:vimtex_view_method='zathura'
     let g:vimtex_quickfix_mode=0
     let g:vimtex_matchparen_enabled=0
     "let g:tex_fast = 'M'
@@ -160,45 +162,6 @@ function! HLtoggle()
     endif
 endfunction
 nnoremap <Leader><CR> :call HLtoggle()<CR>
-
-" Toggle deadkeys on the fly -- and inidicate status to user.
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:DK=0
-function! DKtoggle()
-    if !g:DK
-        let g:DK=1
-        "
-        inoremap e' é
-        inoremap e` è
-        inoremap e> ê
-        inoremap u' ú
-        inoremap u` ù
-        inoremap u> û
-        inoremap o> ô
-        inoremap i> î
-        inoremap CS ç
-        inoremap a` à
-        inoremap a' á
-        echom "Dead Keys on."
-    else
-        let g:DK=0
-        "
-        inoremap e' e'
-        inoremap e> e>
-        inoremap e` e`
-        inoremap u' u'
-        inoremap u` u`
-        inoremap u> u>
-        inoremap o> o>
-        inoremap i> i>
-        inoremap CS CS
-        inoremap a` a`
-        inoremap a' a'
-        echom "Dead Keys off."
-    endif
-endfunction
-nnoremap <Leader>d :call DKtoggle()<CR>
-inoremap <Leader>d <Esc>:call DKtoggle()<CR>a
 
 
 "  SHORTCUTS/MAPPINGS/ABREVIATIONS
@@ -278,8 +241,8 @@ vnoremap <C-p> "+p
 " Make saving quicker
 nnoremap SS <Esc>:w<CR>
 " Make moving around lines more intuitive
-nnoremap H 0
-vnoremap H 0
+nnoremap H g^
+vnoremap H g^
 nnoremap L $
 vnoremap L $
 nnoremap <M-k> 10k
@@ -321,12 +284,27 @@ nnoremap <Leader><Space> :s/_/ /g<CR>
 " Bring up command history quicker
 nnoremap <Leader>q q:
 nnoremap <Leader>Q q:k<CR>
-" Function keys being actually functional
-" F1 - write only
-nnoremap <F1> :w<CR>
-inoremap <F1> <Esc>:w<CR>a
-vnoremap <F1> <Esc>:w<CR>a
-snoremap <F1> <Esc>:w<CR>a
+" Silence some function keys, except F5
+nnoremap <F1> <Nop>
+inoremap <F1> <Nop>
+vnoremap <F1> <Nop>
+snoremap <F1> <Nop>
+
+nnoremap <F2> <Nop>
+inoremap <F2> <Nop>
+vnoremap <F2> <Nop>
+snoremap <F2> <Nop>
+
+nnoremap <F3> <Nop>
+inoremap <F3> <Nop>
+vnoremap <F3> <Nop>
+snoremap <F3> <Nop>
+
+nnoremap <F4> <Nop>
+inoremap <F4> <Nop>
+vnoremap <F4> <Nop>
+snoremap <F4> <Nop>
+
 " surround.vim is the best
 nmap s ys
 nmap ss yss
@@ -438,7 +416,8 @@ augroup texSettings
     au Filetype tex nnoremap <C-E> :VimtexErrors<CR>
     au FileType tex set listchars=eol:¬,tab:\▸\ ,trail:~,extends:>,precedes:<
     au FileType tex normal zfip
-    au Filetype tex nnoremap <leader>t <Esc>:VimtexView<CR>
+    au Filetype tex nnoremap <leader>t <Esc>:VimtexCompile<CR>
+    au Filetype tex nnoremap <leader>T <Esc>:VimtexView<CR>
     " Enable AutoSave for continuous compilation
 "    au FileType tex let g:auto_save = 1 
 augroup END
@@ -548,3 +527,4 @@ nnoremap k gk
 
 nnoremap <leader>b <Esc>:vsp references.bib<CR>
 nnoremap <leader><S-b> <Esc>:! ln -s ~/Meta/templates/tex/references.bib .<CR>
+nnoremap <leader>s <Esc>q:i%s ///g<Esc>2hi
