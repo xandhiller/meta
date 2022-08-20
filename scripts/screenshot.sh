@@ -1,6 +1,7 @@
 #! /bin/zsh 
 #
 TMP_SAVE="$HOME/tmp/screen_grab.png"
+mkdir -p $HOME/tmp
 rm -f $TMP_SAVE
 
 ####################
@@ -31,6 +32,7 @@ selection_screenshot() {
     height=$(file $TMP_SAVE | awk -e '{ print $7 }' | sed -e 's/,//g')
     # Custom, identifiable name
     name=$(date +%Y_%m_%d__%H_%M_%S__$width\_x_$height\_screen_grab.png)
+    echo $name
     FILE_PATH="$HOME/Pictures/screen_grabs/$(echo $name)"
     mv $TMP_SAVE $FILE_PATH
 }

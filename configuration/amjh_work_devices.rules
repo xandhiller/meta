@@ -1,0 +1,78 @@
+# JTAG udev Rules
+SUBSYSTEM=="usb", ATTR{idVendor}=="15ba",
+ATTR{idProduct}=="002b", MODE="666", GROUP="plugdev"
+ 
+SUBSYSTEM=="tty", ATTRS{idVendor}=="15ba",
+ATTRS{idProduct}=="002b", MODE="666", GROUP="plugdev"
+
+
+# CP2104 udev Rules
+SUBSYSTEM=="usb", ATTR{idVendor}=="10c4",
+ATTR{idProduct}=="ea60", MODE="666", GROUP="plugdev"
+ 
+SUBSYSTEM=="tty", ATTRS{idVendor}=="10c4",
+ATTRS{idProduct}=="ea60", MODE="666", GROUP="plugdev"
+
+
+# FT232H udev Rules
+SUBSYSTEM=="usb", ATTR{idVendor}=="0403",
+ATTR{idProduct}=="6014", MODE="666", GROUP="plugdev"
+ 
+SUBSYSTEM=="tty", ATTRS{idVendor}=="0403",
+ATTRS{idProduct}=="6014", MODE="666", GROUP="plugdev"
+
+
+# Vaunix Attenuator  
+SUBSYSTEM=="usb", ATTR{idVendor}=="041f",
+ATTR{idProduct}=="120c", MODE="666", GROUP="plugdev"
+ 
+SUBSYSTEM=="tty", ATTRS{idVendor}=="041f",
+ATTRS{idProduct}=="120c", MODE="666", GROUP="plugdev"
+
+
+# Rigol PSU
+SUBSYSTEM=="usb", ATTR{idVendor}=="lab1",
+ATTR{idProduct}=="0e11", MODE="666", GROUP="plugdev"
+ 
+SUBSYSTEM=="tty", ATTR{idVendor}=="lab1",
+ATTR{idProduct}=="0e11", MODE="666", GROUP="plugdev"
+
+# 4232 udev Rules
+SUBSYSTEM=="usb", ATTR{idVendor}=="0403",
+ATTR{idProduct}=="6011", MODE="666", GROUP="plugdev"
+
+
+# Rigol DM3058E
+SUBSYSTEM=="usb", ATTR{idVendor}=="1ab1",
+ATTR{idProduct}=="09c4", MODE="666", GROUP="plugdev"
+SUBSYSTEM=="tty", ATTR{idVendor}=="1ab1",
+ATTR{idProduct}=="09c4", MODE="666", GROUP="plugdev"
+
+
+# Rigol DL3021
+SUBSYSTEM=="usb", ATTR{idVendor}=="1ab1",
+ATTR{idProduct}=="0608", MODE="666", GROUP="plugdev"
+SUBSYSTEM=="tty", ATTR{idVendor}=="1ab1",
+ATTR{idProduct}=="0608", MODE="666", GROUP="plugdev"
+
+
+# Rigol MSO5354
+SUBSYSTEM=="usb", ATTR{idVendor}=="1ab1",
+ATTR{idProduct}=="0515", MODE="666", GROUP="plugdev"
+SUBSYSTEM=="tty", ATTR{idVendor}=="1ab1",
+ATTR{idProduct}=="0515", MODE="666", GROUP="plugdev"
+
+
+# Rigol Spectrum Analyser DSA832E
+SUBSYSTEM=="usb", ATTR{idVendor}=="1ab1",
+ATTR{idProduct}=="0960", MODE="666", GROUP="plugdev"
+SUBSYSTEM=="tty", ATTR{idVendor}=="1ab1",
+ATTR{idProduct}=="0960", MODE="666", GROUP="plugdev"
+
+# Maury Tuner MT982-EL30
+SUBSYSTEM=="usb", ATTR{idVendor}=="9786",
+ATTR{idProduct}=="1000", MODE="666", GROUP="plugdev"
+SUBSYSTEM=="tty", ATTR{idVendor}=="9786",
+ATTR{idProduct}=="1000", MODE="666", GROUP="plugdev"
+
+

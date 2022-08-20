@@ -69,7 +69,7 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'     
 Plugin 'sotte/presenting.vim'
 " Plugin 'tybenz/vimdeck'
-Plugin 'plasticboy/vim-markdown'
+" Plugin 'plasticboy/vim-markdown'
     " For toggling to switch between hard-wrap and off.
 Plugin 'junegunn/goyo.vim'
     nnoremap <C-c> :Goyo<CR>:<CR>:<Esc>
@@ -88,6 +88,8 @@ Plugin 'junegunn/goyo.vim'
     "let g:ale_sign_error = 'x'
     "let g:ale_sign_warning = '-'
 Plugin 'godlygeek/tabular'
+" Tabularise speed up
+vnoremap <Leader>t :Tabularize /
 "Plugin 'plasticboy/vim-markdown'
 "    let g:tex_conceal = ""
 "    let g:vim_markdown_math = 1
@@ -110,6 +112,7 @@ Plugin 'lervag/vimtex'
     let g:tex_conceal=''
 Plugin 'scrooloose/nerdtree'      
     map <M-Space> :NERDTreeRefreshRoot<CR>:NERDTreeToggle<CR>
+    map <Leader><Space> :NERDTreeRefreshRoot<CR>:NERDTreeToggle<CR>
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
 Plugin 'vim-scripts/vim-auto-save'
@@ -215,7 +218,7 @@ vnoremap <S-Down>   <Nop>
 " Compile the current document into markdown syntax pdf.
 " nnoremap <Leader>d :w<CR>:silent ! livemd.py %:p %:p<CR>:source $MYVIMRC<CR>
 " Edit init.vim on the fly
-nnoremap <Leader>vv :vsp $MYVIMRC<CR>
+nnoremap <Leader>vv <ESC>:vsp $MYVIMRC<CR>
 " Moving around windows
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
@@ -227,9 +230,9 @@ nnoremap <C-Down>  3<C-w>+
 nnoremap <C-Up>    3<C-w>-
 nnoremap <C-Right> 3<C-w>>
 " Refresh vimrc
-inoremap <F5>   <Esc>:source<Space>$MYVIMRC<CR>:echom "init.vim refreshed"<CR>i
-nnoremap <F5>   <Esc>:source<Space>$MYVIMRC<CR>:echom "init.vim refreshed"<CR>
-vnoremap <F5>   <Esc>:source<Space>$MYVIMRC<CR>:echom "init.vim refreshed"<CR>
+inoremap <F5>   <esc>:e<CR><Esc>:source $MYVIMRC<CR>:echom "init.vim refreshed"<CR>i
+nnoremap <F5>   <esc>:e<CR><Esc>:source<Space>$MYVIMRC<CR>:echom "init.vim refreshed"<CR>
+vnoremap <F5>   <esc>:e<CR><Esc>:source<Space>$MYVIMRC<CR>:echom "init.vim refreshed"<CR>
 " Copy and paste to the clipboard
 set clipboard=unnamedplus
 inoremap <C-y> <Nop>
@@ -279,8 +282,8 @@ vnoremap <Leader>_ :s/\%V /_/g<CR>
 vnoremap <Leader>- :s/\%V /-/g<CR>
 nnoremap <Leader>_ :s/ /_/g<CR>
 nnoremap <Leader>- :s/ /-/g<CR>
-vnoremap <Leader><Space> :s/\%V_/ /g<CR>
-nnoremap <Leader><Space> :s/_/ /g<CR>
+" vnoremap <Leader><Space> :s/\%V_/ /g<CR>
+" nnoremap <Leader><Space> :s/_/ /g<CR>
 " Bring up command history quicker
 nnoremap <Leader>q q:
 nnoremap <Leader>Q q:k<CR>
@@ -506,6 +509,16 @@ augroup javaScript
     au FileType javascript nnoremap <leader>r <esc>:! nodejs %<CR>
     au FileType javascript vnoremap <leader>r <esc>:! nodejs %<CR>
     au FileType javascript inoremap <leader>r <esc>:! nodejs %<CR>
+augroup END
+
+augroup matlab
+    au!
+    au FileType matlab nnoremap <leader>r <esc>:w<CR><esc>:! octave % 2> /dev/null<CR>
+    au FileType matlab vnoremap <leader>r <esc>:w<CR><esc>:! octave % 2> /dev/null<CR>
+    au FileType matlab inoremap <leader>r <esc>:w<CR><esc>:! octave % 2> /dev/null<CR>
+    au FileType matlab nnoremap <leader>R <esc>:w<CR><esc>:! octave % <CR>
+    au FileType matlab vnoremap <leader>R <esc>:w<CR><esc>:! octave % <CR>
+    au FileType matlab inoremap <leader>R <esc>:w<CR><esc>:! octave % <CR>
 augroup END
 
 " IGNORE FILES VIM DOESN'T USE

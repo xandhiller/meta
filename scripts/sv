@@ -1,0 +1,4 @@
+#! /bin/zsh --
+
+name=$(echo $1 | sed -e 's/\./ /g' | awk -e '{ print $1 }')
+iverilog -o $name.vvp -g2005-sv $@

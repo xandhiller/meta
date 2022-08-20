@@ -81,12 +81,7 @@ HISTFILESIZE=2000
 #  fi
 #fi
 
-source ~/Meta/configuration/aliases.sh
-export RISCV_OPENOCD_PATH=/opt/riscv-openocd-0.10.0-2018.12.0-x86_64-linux-ubuntu14
-export RISCV_PATH=/opt/riscv64-unknown-elf-gcc-8.2.0-2019.02.0-x86_64-linux-ubuntu14
-export RISCV=$RISCV_PATH
-export CLANG_STATIC_ANALYSIS_PATH=/opt/clang-riscv-10.0.0-2019.12.24
-export PATH=$PATH:$RISCV_PATH/bin:$RISCV_OPENOCD_PATH/bin:$CLANG_STATIC_ANALYSIS_PATH/bin
+source $HOME/Meta/configuration/aliases.sh
 
 export ZSH="/home/alex/.oh-my-zsh"
 PROMPT='%{$fg[green]%}%~%{$fg_bold[blue]%} $(git_prompt_info)%{$reset_color%} '
@@ -104,32 +99,21 @@ source $HOME/Meta/configuration/antigen.zsh
 # Bundles from the default repo (robbyrussell's oh-my-zsh).
 antigen use oh-my-zsh
 antigen bundle git
-#antigen bundle heroku
-#antigen bundle pip
-#antigen bundle lein
-#antigen bundle command-not-found
-
-# Syntax highlighting bundle.
-# antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle softmoth/zsh-vim-mode
-
-# Load the theme.
-#antigen theme robbyrussell
-
 # Tell Antigen that you're done.
 antigen apply
 # So that vim mode works correctly on CLI
 KEYTIMEOUT=1
-export VISUAL=vim export EDITOR="$VISUAL"
 
 if [ `hostname` = "nebuchadnezzar" ]
 then
     PATH="$PATH:/homebrew/anaconda3/bin"
+    export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/opt/homebrew/lib/pkgconfig/:/opt/homebrew/share/pkgconfig/
 fi
 
-        ## >>> conda initialize >>>
-        ## !! Contents within this block are managed by 'conda init' !!
+## >>> conda initialize >>>
+## !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/opt/homebrew/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
    eval "$__conda_setup"
@@ -141,16 +125,45 @@ else
     fi
 fi
 unset __conda_setup
-        ## <<< conda initialize <<<
+            ## <<< conda initialize <<<
 
-export VISUAL=vim 
+export VISUAL=nvim 
 export EDITOR="$VISUAL"
-export HIGHLIGHT_STYLE=fruit
-
-export PATH=$PATH:$HOME/Meta/scripts:$HOME/.local/bin
+export HIGHLIGHT_STYLE=fruit  # for `highlight` aka `ccat`
 export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/opt/homebrew/lib/pkgconfig/:/opt/homebrew/share/pkgconfig/
-source ~/Work/.work_zshrc
-export EDITOR='nvim'
-export PYTHONPATH=$HOME/Work/tuna:$HOME/Work/morseinstruments
 export AGDA_DIR=$HOME/.agda
-alias syd5="ssh -X alex@syd5.morsemicro.com"
+####################
+# Work tools
+####################
+export RISCV_OPENOCD_PATH=/opt/riscv-openocd-0.10.0-2018.12.0-x86_64-linux-ubuntu14
+export RISCV_PATH=/opt/riscv64-unknown-elf-gcc-8.2.0-2019.02.0-x86_64-linux-ubuntu14
+export RISCV=$RISCV_PATH
+export CLANG_STATIC_ANALYSIS_PATH=/opt/clang-riscv-10.0.0-2019.12.24
+export RISCV_OPENOCD_PATH=/opt/riscv-openocd-0.10.0-2018.12.0-x86_64-linux-ubuntu14
+export RISCV_PATH=/opt/riscv64-unknown-elf-gcc-8.2.0-2019.02.0-x86_64-linux-ubuntu14
+export PATH=$PATH:$RISCV_PATH/bin:$RISCV_OPENOCD_PATH/bin:$CLANG_STATIC_ANALYSIS_PATH/bin
+export PATH=$PATH:/usr/local/MATLAB/R2019a/bin
+export PATH=$PATH:/usr/local/Wolfram/Mathematica/13.0/Executables
+####################
+# $PATH appending
+####################
+export PATH=$PATH:$HOME/Meta/scripts
+export PATH=$PATH:$HOME/.local/bin
+####################
+# FOSS IC tools
+####################
+export PATH=$PATH:/opt/iverilog/bin
+export PATH=$PATH:/opt/xschem/bin
+export PATH=$PATH:/opt/magic/bin
+export PATH=$PATH:/opt/netgen/bin
+export PATH=$PATH:/opt/qflow/bin
+####################
+# Custom python libs
+####################
+export PYTHONPATH=$HOME/alex/Documents/Analog/morseinstruments:$HOME/alex/Documents/Analog/tuna:$HOME/alex/Documents/Analog/igor:$HOME/Work/STDFReader:$HOME/Work/tuna:$HOME/Work/ate/ate_database_parser
+# export PYTHONPATH=$HOME/Work/tuna:$HOME/Work/morseinstruments
+
+export _JAVA_AWT_WM_NONREPARENTING=1
+export BASE_DIR=$HOME/Documents/Analog
+export FONTCONFIG_PATH=/etc/fonts
+source $HOME/Work/.work_zshrc

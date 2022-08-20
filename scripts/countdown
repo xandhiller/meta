@@ -1,0 +1,216 @@
+#! /usr/bin/python3 --
+################################################################################
+#
+# Author:               Alex Hiller
+# Year:                 2021
+# Program Description:  <++>
+#
+################################################################################
+import itertools
+from itertools import permutations
+from random import choice
+import more_itertools as mit
+from copy import deepcopy
+from pprint import pprint
+import sys
+from time import sleep
+
+vowels = ['a','e','i','o','u']
+consonants = ['b','c','d','f','g','h','j','k','l','m','n','p','q','r','s','t','v','w','x','y','z']
+numbers = list('1234567890')
+LEN_WORD_SEQ = 8
+LEN_NB_SEQ = 6
+LOG = False
+
+def green(text):
+    return "\033[32m" + text + "\033[0m"
+def bold(text):
+    return "\033[1m" + text + "\033[0m"
+
+def get_words():
+    f = open('words.txt', 'r')
+    words = f.read()
+    words = words.split('\n')
+    return words
+
+
+def letter_choice():
+    ans = ''
+    while ans != 'c' and ans != 'v':
+        ans = input("Consonant or vowel? [c/v] > ")
+    if ans == 'c':
+        sample = choice(consonants)
+        print(f"You chose consonant and sampled: {sample}")
+        return sample
+    elif ans == 'v':
+        sample = choice(vowels)
+        print(f"You chose vowel and sampled: {sample}")
+        return sample
+
+
+
+
+def words():
+    words = get_words()
+    search_space = []
+    ans = ''
+    print(20*'-')
+    while ans != 'r' and ans != 'i':
+        ans = input(f"Random sample or input? [r/i] > ")
+    if ans == 'r':
+        for i in range(LEN_WORD_SEQ):
+            letter = letter_choice()
+            search_space.append(letter)
+    elif ans == 'i':
+        search_space = input("Selected input > ")
+        search_space = list(search_space)
+    for i,el in enumerate(search_space):
+        nb_combinations = len(list(itertools.combinations(search_space,i)))
+        comb_count = 0
+        for _search_space in itertools.combinations(search_space, i):
+            # print(20*'-')
+            # _search_space = search_space[0:i+1]
+            perm_len = len(list(permutations(_search_space)))
+            nb_perms = 0
+            for perm in permutations(_search_space):
+                if LOG:
+                    sys.stdout.write('\r')
+                    sys.stdout.write(f"Permutations: {nb_perms+1}/{perm_len} = {round((nb_perms+1)/perm_len*100, 2)}%,\t" \
+                                     f"Number of combinations: {comb_count+1}/{nb_combinations} = {round((comb_count+1)/(nb_combinations), 2)}%,\t" \
+                                     f"Number of letters: {i+1}/{len(search_space)}")
+                    sys.stdout.flush()
+                string = ''.join(list(perm))
+                if string in words:
+                    if LOG:
+                        print("\n")  # formatting
+                    print(green("Solution: ") + f"Length={len(string)}\t", bold(f"{string}"))
+                nb_perms+=1
+            comb_count +=1
+
+    
+
+def slice_by_lengths(lengths, the_list):
+    for length in lengths:
+        new = []
+        for i in range(length):
+            new.append(the_list.pop(0))
+        yield new
+
+
+def partition(number):
+    return {(x,) + y for x in range(1, number) for y in partition(number-x)} | {(number,)}
+
+
+def subgroups(my_list):
+    partitions = partition(len(my_list))
+    permed = []
+    for each_partition in partitions:
+        permed.append(set(itertools.permutations(each_partition, len(each_partition))))
+    for each_tuple in itertools.chain(*permed):
+        yield list(slice_by_lengths(each_tuple, deepcopy(my_list)))
+
+
+def make_subsets(numbers): 
+    return subgroups(numbers)
+    # return [part for k in range(1, len(numbers) + 1) for part in mit.set_partitions(numbers, k)]
+
+def splice(_numbers):
+    executions = []
+    operator_seqs = itertools.product("+-/*", repeat=len(_numbers)-1)
+    for ops in operator_seqs:
+        to_execute = []
+        for i,op in enumerate(ops):
+            to_execute += [_numbers[i], ops[i]]
+            # print(f"to execute = {to_execute}")
+        to_execute += _numbers[-1]
+        # print(f"to execute = {to_execute}")
+        executions.append(to_execute)
+    return executions
+
+def make_executions(numbers):
+    """
+    Splice all numbers given with all combinations of +, -, /, and *.
+    """
+    executions = []
+    _numbers = numbers.copy()
+    orig_len = len(numbers)
+    for i in range(len(_numbers)):
+        print(f"Nbs left == {len(_numbers)} / {orig_len}")
+        executions += splice(_numbers)
+        _numbers = _numbers[:-1]
+    return executions
+
+
+def numbers():
+    operators = list("+-/*")
+    numbers = []
+    for i in range(LEN_NB_SEQ):
+        print(20*'-')
+        print(f"Status: {i+1}/{LEN_NB_SEQ}")
+        nb = input("Number > ")
+        # TODO: Check formatting here?
+        # nb = int(nb)
+        numbers.append(nb)
+        print(f"nb = {nb}")
+        print(f"numbers = {numbers}")
+    numbers = sorted(numbers)
+    print(f"numbers = {numbers}")
+    print(20*"~")
+    target = int(input("Target number? > "))
+    print(20*"~")
+    print(20*'-')
+    nb_solns = 0
+    orig_len = len(numbers)
+    to_executes = []
+    # Add parantheses for all permutations
+#   subsets = make_subsets(numbers)  # make subsets
+#   subsets = list(subsets)
+#   elements = []
+#   for nb_set in subsets:
+#       print(f"nb_set = {nb_set}")
+#       for el in nb_set:
+#           print(f"el={el}")
+#           if len(el) > 1:
+#               s = splice(el)
+#               print(f"s = {s}")
+#               fs = "".join(["("] + s + [")"])
+#               print(f"fs = {fs}")
+#           else:
+#               s = "("+el[0]+")"
+#               print(f"s = {s}")
+#           elements.append(s)
+#       to_execute = splice(elements)
+
+#       to_executes = make_executions(to_execute)
+    to_executes = make_executions(numbers)
+    # print(to_executes)
+    for ex in to_executes:
+        ex = "".join(ex)
+        output = eval(ex)
+        if output == target:
+            print(20*'-')
+            print(f'Solution = {ex} == {target}')
+            nb_solns += 1
+    print(20*'=')
+    print(f"Number of solutions = {nb_solns}")
+    print(20*'=')
+    # print(numbers)
+
+
+
+########################################
+def main():
+    try: 
+        ans = ''
+        while ans != 'n' and ans != 'w':
+            ans = input("Numbers or Words? [n/w] > ")
+        if ans == 'n':
+            numbers()
+        elif ans == 'w':
+            words()
+    except KeyboardInterrupt:
+        return
+
+
+if __name__ == '__main__':
+    main()

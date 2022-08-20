@@ -87,3 +87,63 @@ Process of interpretation of a keysym is:
 (scancode) -> [Linux Kernel]    -> (keycode)
 (keycode)  -> [Keyboard Layout] -> (keysym)   # based on modifier keys (ctrl, alt, super, etc.)
 (keysym)   -> [ACTION]
+
+---
+
+## Using openvpn3
+
+```sh
+
+openvpn3 config-import --config YOUR_CLIENT_FILE.OVPN
+openvpn3 session-start --config YOUR_CLIENT_FILE.OVPN
+```
+
+----
+# Connect to the wifi from cli
+
+Get the status of networking settings
+```
+nmcli
+```
+
+----
+Get the wifi networks around you
+```
+nmcli dev wifi list
+```
+
+----
+Connect to a network using the SSID from the above command
+```
+sudo nmcli dev wifi connect THE_SSID_HERE
+```
+
+----
+Find the files involved in an apt install:
+```
+dpkg -L package_name_here
+```
+
+----
+* `zathura` stores bookmarks in `~/.local/share/zathura/bookmarks`. 
+* Set a bookmark in `zathura` with `:bmark NAME_HERE`.
+* View them by entering `:blist <TAB>` to iterate through the list.
+* You can also delete a bookmark with `:bdelete NAME_HERE` if it's shitting you.
+
+
+----
+Got rid of the GUI starting on Ubuntu with:
+```
+sudo systemctl set-default multi-user
+```
+
+----
+* For regexes in `vim`, use: `\r` instead of `\n` if you want to refer to a newline.
+* To use a regex, put it inside of escaped parantheses, e.g. `\(REGEX_HERE\)`.
+
+----
+Change brightness with:
+```
+sudo brightnessctl -d "intel_backlight" set 5
+```
+how to remove sudo permissions though...

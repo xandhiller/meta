@@ -44,6 +44,10 @@ snip.rv = eval('latex(' + match.group(1).replace('\\', '') \
 endsnippet
 
 
+snippet t "t[]" 
+`!p snip.rv = t`
+endsnippet
+
 snippet box "Box"
 `!p snip.rv = '┌' + '─' * (len(t[1]) + 2) + '┐'`
 │ $1 │
