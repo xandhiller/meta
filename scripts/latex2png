@@ -1,16 +1,20 @@
 #! /bin/sh --
 
 
-cp -f $1 /tmp > /dev/null 
-tmp_loc=/tmp/$1
-cd /tmp # go somewhere where we can be messy with pdflatex
-
+filename=$1
+echo "--------------------------------------------------------------------------------"
+echo "filename for latex2png is: $filename"
+echo "--------------------------------------------------------------------------------"
+echo "Compiling LaTeX to PDF..."
+echo "--------------------------------------------------------------------------------"
+# cd /tmp # go somewhere where we can be messy with pdflatex
 # assumes you're on a mac, just add an if-statement for linux vs. mac
-pdflatex $tmp_loc > /dev/null 2> /dev/null  # send general output to devnull
-base=$(echo $tmp_loc | sed 's/\.[^.]*$//')
-convert -density -quiet 300 $base.pdf -quality 100 $base.png > /dev/null 2> /dev/null
-cat $base.png | impbcopy -
-
-# go back to original location
-cd - > /dev/null
-
+pdflatex -output-directory /tmp $filename  # send general output to devnull
+base=$(basename $filename .tex)
+echo "--------------------------------------------------------------------------------"
+echo "basename is: $base"
+echo "--------------------------------------------------------------------------------"
+echo "Converting to png..."
+echo "--------------------------------------------------------------------------------"
+convert -density 300 /tmp/$base.pdf -quality 100 /tmp/$base.png 
+cat /tmp/$base.png | impbcopy -

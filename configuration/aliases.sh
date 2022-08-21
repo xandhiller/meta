@@ -1,4 +1,4 @@
-#! /bin/sh --
+#! /bin/sh --`
 alias vim='nvim'
 alias grep='grep --color=auto'
 alias ccat='highlight --force --style=$HIGHLIGHT_STYLE --out-format=ansi'
@@ -65,6 +65,7 @@ alias syd5="ssh -X alex@syd5.morsemicro.com"
 alias ate="cd $HOME/Work/ate"
 alias atep="cd $HOME/Work/ate/ate_database_parser"
 alias tp="cd $HOME/Work/ate_test_program"
+alias tm="cp $HOME/Meta/templates/tex/template.tex $HOME/Meta/scratchpad/tex_scratchpad.tex; vim $HOME/Meta/scratchpad/tex_scratchpad.tex"
 
 
 get_pos() {

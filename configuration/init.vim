@@ -75,7 +75,7 @@ Plugin 'junegunn/goyo.vim'
     nnoremap <C-c> :Goyo<CR>:<CR>:<Esc>
     function! s:goyo_enter()
         hi Hook                 ctermbg=189
-        match Hook "<++>" 
+        match Hook "" 
         set signcolumn=no
     endfunction
     function! s:goyo_leave()
@@ -324,7 +324,7 @@ nnoremap <C-t> :split<cr><c-w><c-j>:terminal<cr>
 " 2021-05-30: Replace hooks with smarter use of marks? 
 " HOOKS
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"         ([)
+"         ([a
 "     (l) (;) (') 
 "         (.)
 " <Leader><Leader>    Place hook
@@ -369,7 +369,14 @@ vnoremap <Leader>t :Tabularize /
 "" FILETYPE SPECIFIC SETTINGS
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 augroup useful_md_Settings
+    au!
     au BufReadPost useful.md normal GGzz
+augroup END
+augroup latex2png
+    au!
+    au BufReadPost tex_scratchpad.tex normal /<++><CR>lh"_c4l
+    au BufWritePost tex_scratchpad.tex ! latex2png %
+    au BufWinLeave tex_scratchpad.tex ! latex2png %
 augroup END
 augroup markdownSettings
     au!
@@ -418,7 +425,7 @@ augroup texSettings
     au!
     au Filetype tex nnoremap <C-E> :VimtexErrors<CR>
     au FileType tex set listchars=eol:¬,tab:\▸\ ,trail:~,extends:>,precedes:<
-    au FileType tex normal zfip
+    "au FileType tex normal zfip
     au Filetype tex nnoremap <leader>t <Esc>:VimtexCompile<CR>
     au Filetype tex nnoremap <leader>T <Esc>:VimtexView<CR>
     " Enable AutoSave for continuous compilation
