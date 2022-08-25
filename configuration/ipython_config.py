@@ -39,6 +39,7 @@ c.InteractiveShellApp.exec_lines = [
     import pandas as pd
     import sympy as sp
     import scipy
+    import pyvisa
     from numpy import e  
     from scipy.constants import k, c, pi, g  # boltzmann speed of light acceleration due to gravity 
     from scipy.constants import mu_0
@@ -57,6 +58,22 @@ c.InteractiveShellApp.exec_lines = [
         "text.usetex": True,
         "font.family": "serif",
         "font.sans-serif": ["Computer Modern"]})
+    from math import log
+    db = lambda x : 20*log(x)/log(10)
+    db10= lambda x : 10*log(x)/log(10) 
+    import adi
+    my_pluto_sdr_ip = "192.168.3.1"
+    try:
+        if os.environ["PLUTO"]:
+            try:
+                sdr = adi.Pluto(f"ip:{my_pluto_sdr_ip}")
+                print(f"Pluto SDR connected at: {my_pluto_sdr_ip}")
+            except:
+                print("No Pluto SDR connected...")
+    except KeyError:
+        print("$PLUTO not set...")
+    rm = pyvisa.ResourceManager('@py')
+    rm_def = pyvisa.ResourceManager()
     """
 ]
 

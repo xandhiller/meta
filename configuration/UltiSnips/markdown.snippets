@@ -20,8 +20,9 @@ endsnippet
 
 snippet block "Create markdown block" b
 --------------------
-${1:#} $0
+${1:#} 
 --------------------
+$0
 endsnippet
 
 
@@ -57,4 +58,9 @@ endsnippet
 # TODO: Grab whitespace at front of line to preserve indent.
 snippet "([0-9A-Za-z\ \-\'?,"`_]*) qq" "definition" rwA
 Q: `!p snip.rv=match.group(1)`$0
+endsnippet
+
+snippet line "" bA
+----
+
 endsnippet

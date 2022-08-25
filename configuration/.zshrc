@@ -82,6 +82,12 @@ HISTFILESIZE=2000
 #fi
 
 source $HOME/Meta/configuration/aliases.sh
+# export RISCV_OPENOCD_PATH=/opt/riscv-openocd-0.10.0-2018.12.0-x86_64-linux-ubuntu14
+export RISCV_OPENOCD_PATH=/opt/riscv-openocd-0.10.0-2020.12.1-x86_64-linux-ubuntu14  # version 0.11
+export RISCV_PATH=/opt/riscv64-unknown-elf-gcc-8.2.0-2019.02.0-x86_64-linux-ubuntu14
+export RISCV=$RISCV_PATH
+export CLANG_STATIC_ANALYSIS_PATH=/opt/clang-riscv-10.0.0-2019.12.24
+export PATH=$PATH:$RISCV_PATH/bin:$RISCV_OPENOCD_PATH/bin:$CLANG_STATIC_ANALYSIS_PATH/bin
 
 export ZSH="/home/alex/.oh-my-zsh"
 PROMPT='%{$fg[green]%}%~%{$fg_bold[blue]%} $(git_prompt_info)%{$reset_color%} '
@@ -129,7 +135,6 @@ unset __conda_setup
 
 export VISUAL=nvim 
 export EDITOR="$VISUAL"
-export HIGHLIGHT_STYLE=fruit  # for `highlight` aka `ccat`
 export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/opt/homebrew/lib/pkgconfig/:/opt/homebrew/share/pkgconfig/
 export AGDA_DIR=$HOME/.agda
 ####################
@@ -144,6 +149,7 @@ export RISCV_PATH=/opt/riscv64-unknown-elf-gcc-8.2.0-2019.02.0-x86_64-linux-ubun
 export PATH=$PATH:$RISCV_PATH/bin:$RISCV_OPENOCD_PATH/bin:$CLANG_STATIC_ANALYSIS_PATH/bin
 export PATH=$PATH:/usr/local/MATLAB/R2019a/bin
 export PATH=$PATH:/usr/local/Wolfram/Mathematica/13.0/Executables
+export HIGHLIGHT_STYLE=fruit  # for `highlight` during `cat`-ing files.
 ####################
 # $PATH appending
 ####################
@@ -167,3 +173,10 @@ export _JAVA_AWT_WM_NONREPARENTING=1
 export BASE_DIR=$HOME/Documents/Analog
 export FONTCONFIG_PATH=/etc/fonts
 source $HOME/Work/.work_zshrc
+
+####################
+# Do last
+####################
+#if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
+#    tmux
+#fi

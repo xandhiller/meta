@@ -13,7 +13,7 @@ alias lsa='la -a'
 # CLI Program Shortcuts
 alias yt='youtube-dl --add-metadata -ic' # Download video
 alias yta='youtube-dl --add-metadata -xic' # Download audio
-alias tr='tree'
+alias tree='tree'
 alias t='tree'
 alias tl='tree -L'
 alias record='ffmpeg -f x11grab -s 1600x900 -i :0.0 ~/Videos/screenRecording.mkv'
@@ -53,9 +53,9 @@ alias ref='source $HOME/.zshrc > /dev/null && source $HOME/Meta/configuration/al
 alias an="cd ~/Documents/Analog"
 alias igor="cd ~/Documents/Analog/igor"
 alias "cd cd"="cd"
+# Desktop tools
 alias edwm="nvim ~/Meta/desktop/dwm/config.h ~/Meta/desktop/dwm/dwm.c"
 alias est="nvim ~/Meta/desktop/st/config.h"
-alias useful="nvim ~/Meta/scripts/useful.md"
 alias mdwm="cd ~/Meta/desktop/dwm/; sudo make install && cd -"
 alias mst="cd ~/Meta/desktop/st/; sudo make install &&  cd -"
 alias icat='kitty icat --align=left'
@@ -83,8 +83,11 @@ get_pos() {
 }
 
 echo $x $y
+
+alias useful="nvim ~/Meta/scripts/useful.md"
+alias usef="cat ~/Meta/scripts/useful.md"
 alias eipy="vim ~/Meta/configuration/ipython_config.py"
-alias ipy="ipython3"
+alias ipy="ipython3 --no-banner"
 alias pc="ping 8.8.8.8"  # ping check
 sv () {
     name=$(echo $1 | sed -e 's/\./ /g' | awk -e '{ print $1 }')
@@ -98,4 +101,19 @@ svr () {
 svw () {
     name=$(echo $1 | sed -e 's/\./ /g' | awk -e '{ print $1 }')
     iverilog -o $name.vvp -g2005-sv $@; vvp $name.vvp; gtkwave $name.vcd &
+}
+vams () {
+    name=$(echo $1 | sed -e 's/\./ /g' | awk -e '{ print $1 }')
+    iverilog -o $name.vvp -gverilog-ams $@
+}
+vamsr () {
+    name=$(echo $1 | sed -e 's/\./ /g' | awk -e '{ print $1 }')
+    iverilog -o $name.vvp -gverilog-ams $@
+    vvp $name.vvp
+}
+vamsw () {
+    name=$(echo $1 | sed -e 's/\./ /g' | awk -e '{ print $1 }')
+    iverilog -o $name.vvp -gverilog-ams $@
+    vvp $name.vvp
+    gtkwave $name.vcd &
 }

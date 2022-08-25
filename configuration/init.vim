@@ -70,6 +70,30 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'sotte/presenting.vim'
 " Plugin 'tybenz/vimdeck'
 " Plugin 'plasticboy/vim-markdown'
+=======
+" Plugin 'JuliaEditorSupport/julia-vim'
+Plugin 'ntessore/unicode-math.vim'
+    let g:UNICODE_MATH=0
+    function! UNICODE_MATH_on()
+        set keymap=unicode-math
+    endfunction
+    function! UNICODE_MATH_off()
+        set keymap=
+    endfunction
+    function! UNICODE_MATH_toggle()
+        if !g:UNICODE_MATH
+            let g:UNICODE_MATH=1
+            call UNICODE_MATH_on()
+            echo "Unicode math is ON"
+        else
+            let g:UNICODE_MATH=0
+            call UNICODE_MATH_off()
+            echo "Unicode math is OFF"
+        endif
+    endfunction
+    inoremap <Leader>m <Esc>:call UNICODE_MATH_toggle()<CR>a
+    nnoremap <Leader>m <Esc>:call UNICODE_MATH_toggle()<CR>
+    vnoremap <Leader>m <Esc>:call UNICODE_MATH_toggle()<CR>
     " For toggling to switch between hard-wrap and off.
 Plugin 'junegunn/goyo.vim'
     nnoremap <C-c> :Goyo<CR>:<CR>:<Esc>
@@ -115,8 +139,8 @@ Plugin 'scrooloose/nerdtree'
     map <Leader><Space> :NERDTreeRefreshRoot<CR>:NERDTreeToggle<CR>
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
-Plugin 'vim-scripts/vim-auto-save'
-Plugin 'kshenoy/vim-signature'
+" Plugin 'vim-scripts/vim-auto-save'
+" Plugin 'kshenoy/vim-signature'
 
 call vundle#end()
 filetype plugin indent on
@@ -147,7 +171,7 @@ function! EIGHTYtoggle()
         call EIGHTYoff()
     endif
 endfunction
-nnoremap <Leader>cl :call EIGHTYtoggle()<CR>
+nnoremap <Leader>cl <ESC>:call EIGHTYtoggle()<CR>
 
 
 " TOGGLE HIGHLIGHTS ON THE FLY -- an inidicate status to user.
@@ -528,6 +552,12 @@ augroup matlab
     au FileType matlab inoremap <leader>R <esc>:w<CR><esc>:! octave % <CR>
 augroup END
 
+augroup verilog
+    au!
+    au FileType systemverilog nnoremap <leader>r <esc>:w<CR><esc>:! sv % <CR>
+    au FileType systemverilog vnoremap <leader>r <esc>:w<CR><esc>:! sv % <CR>
+    au FileType systemverilog inoremap <leader>r <esc>:w<CR><esc>:! sv % <CR>
+augroup END
 " IGNORE FILES VIM DOESN'T USE
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set wildignore+=.git,.hg,.svn
