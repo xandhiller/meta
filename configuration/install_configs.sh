@@ -68,16 +68,21 @@ ln -sf $config_dir/init.vim   ./.config/nvim/init.vim
 ln -sf $config_dir/zathurarc  ./.config/zathura/zathurarc
 ln -sf $config_dir/.zshrc     ./.zshrc
 
-printf "========================================\n"
-printf "Changing default shell to zsh...\n"
-printf "========================================\n"
-chsh -s $(which zsh)
+## WARNING: This currently erroneously sets root's shell to zsh, which is bad news. 
+## WARNING: CBF fixing atm
+# printf "========================================\n"
+# printf "Changing default shell to zsh...\n"
+# printf "========================================\n"
+# chsh -s $(which zsh) $USER
+# printf "========================================\n"
+# printf "Checking if shell change worked...\n"
+# printf "========================================\n"
+# grep $USER /etc/passwd
+# printf "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n"
+# printf "@ WARNING: ZSH will (likely) not be default shell until you log out and @\n"
+# printf "@          back in again.                                               @\n"
+# printf "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n"
 
-
-printf "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n"
-printf "@ WARNING: ZSH will (likely) not be default shell until you log out and @\n"
-printf "@          back in again.                                               @\n"
-printf "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n"
 ################################################################################
 # FINISHED. Go back to where we started at the beginning of script
 ################################################################################
